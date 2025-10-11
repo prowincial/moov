@@ -1,0 +1,268 @@
+/* =========================
+    COLOR VARIABLES
+    ========================= */
+:root {
+  /* Primary Colors */
+  --color-primary: #1001c0; /* Dark Blue */
+  --color-primary-light: #3b82f6; /* Dodger Blue */
+  --color-primary-lighter: #60a5fa; /* Malibu */
+  --color-primary-dark: #2563eb; /* Royal Blue */
+
+  /* Greyscale */
+  --color-black: #000000;
+  --color-grey-darkest: #1c1917;
+  --color-grey-darker: #0c0a09;
+  --color-grey-dark: #44403c;
+  --color-grey: #78716c;
+  --color-grey-light: #a8a29e;
+  --color-grey-lighter: #d6d3d1;
+  --color-grey-lightest: #fafaf9;
+  --color-grey-lightest-alt: #f5f5f4;
+
+  /* Whites */
+  --color-white: #ffffff;
+
+  /* Opacity Variants */
+  --color-white-02: rgba(255, 255, 255, 0);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-15: rgba(255, 255, 255, 0.15);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-30: rgba(255, 255, 255, 0.3);
+  --color-white-40: rgba(255, 255, 255, 0.4);
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-70: rgba(255, 255, 255, 0.7);
+  --color-white-80: rgba(255, 255, 255, 0.8);
+  --color-white-85: rgba(255, 255, 255, 0.85);
+  --color-white-90: rgba(255, 255, 255, 0.9);
+  --color-white-95: rgba(255, 255, 255, 0.95);
+
+  /* Other Colors */
+  --color-grey-25-50: rgba(68, 64, 60, 0.5);
+  --color-grey-15-50: rgba(41, 37, 36, 0.5);
+  --color-grey-15-60: rgba(41, 37, 36, 0.6);
+  --color-grey-69-40: rgba(176, 176, 176, 0.4);
+  --color-grey-75-30: rgba(192, 192, 192, 0.3);
+  --color-grey-75-12: rgba(192, 192, 192, 0.12);
+  --color-grey-90-30: rgba(231, 229, 228, 0.3);
+  --color-grey-90-50: rgba(231, 229, 228, 0.5);
+
+  /* Blue Opacity Variants */
+  --color-primary-20: rgba(16, 1, 192, 0.2);
+  --color-primary-5: rgba(16, 1, 192, 0.05);
+  --color-primary-50: rgba(16, 1, 192, 0.5);
+  --color-primary-0: rgba(16, 1, 192, 0);
+
+  /* Azure Opacity Variants */
+  --color-azure-60-4: rgba(59, 130, 246, 0.04);
+  --color-azure-60-8: rgba(59, 130, 246, 0.08);
+  --color-azure-60-30: rgba(59, 130, 246, 0.3);
+  --color-azure-60-0: rgba(59, 130, 246, 0);
+  --color-azure-65-6: rgba(156, 163, 175, 0.06);
+  --color-azure-65-0: rgba(156, 163, 175, 0);
+
+  /* Gradients */
+  --color-gradient-white: linear-gradient(to left, #ffffff, #ffffff);
+  --color-gradient-dark: linear-gradient(to left, #121212, #121212);
+
+  /* Miscellaneous */
+  --color-black-40: rgba(0, 0, 0, 0.4);
+  --color-black-0: rgba(0, 0, 0, 0);
+}
+
+/* =========================
+    TYPOGRAPHY VARIABLES
+    ========================= */
+:root {
+  /* Main Font Families */
+  --font-main: 'Outfit-Regular', sans-serif;
+  --font-bold: 'Outfit-Bold', sans-serif;
+  --font-semibold: 'Outfit-SemiBold', sans-serif;
+  --font-medium: 'Outfit-Medium', sans-serif;
+  --font-light: 'Outfit-Light', sans-serif;
+
+  /* Headings */
+  --heading-1-font-family: var(--font-bold);
+  --heading-1-font-size: 56px;
+  --heading-1-line-height: 61.6px;
+  --heading-1-font-weight: 700;
+
+  --heading-2-font-family: var(--font-main);
+  --heading-2-font-size: 16px;
+  --heading-2-line-height: 20px;
+  --heading-2-font-weight: 400;
+
+  --heading-3-font-family: var(--font-semibold);
+  --heading-3-font-size: 20px;
+  --heading-3-line-height: 28px;
+  --heading-3-font-weight: 600;
+
+  --heading-3-alt-font-family: var(--font-bold);
+  --heading-3-alt-font-size: 24px;
+  --heading-3-alt-line-height: 32px;
+  --heading-3-alt-font-weight: 700;
+
+  --heading-4-font-family: var(--font-semibold);
+  --heading-4-font-size: 18px;
+  --heading-4-line-height: 28px;
+  --heading-4-font-weight: 600;
+
+  --heading-4-alt-font-family: var(--font-main);
+  --heading-4-alt-font-size: 24px;
+  --heading-4-alt-line-height: 32px;
+  --heading-4-alt-font-weight: 400;
+
+  /* Buttons */
+  --button-font-family: var(--font-semibold);
+  --button-font-size: 14px;
+  --button-line-height: 20px;
+  --button-font-weight: 600;
+
+  --button-large-font-family: var(--font-semibold);
+  --button-large-font-size: 18px;
+  --button-large-line-height: 28px;
+  --button-large-font-weight: 600;
+
+  --button-xlarge-font-family: var(--font-semibold);
+  --button-xlarge-font-size: 20px;
+  --button-xlarge-line-height: 32.5px;
+  --button-xlarge-font-weight: 600;
+
+  --button-medium-font-family: var(--font-medium);
+  --button-medium-font-size: 16px;
+  --button-medium-line-height: 24px;
+  --button-medium-font-weight: 500;
+
+  --button-upper-font-family: var(--font-light);
+  --button-upper-font-size: 12px;
+  --button-upper-line-height: 16px;
+  --button-upper-font-weight: 300;
+
+  /* Links */
+  --link-font-family: var(--font-main);
+  --link-font-size: 14px;
+  --link-line-height: 20px;
+  --link-font-weight: 400;
+
+  --link-large-font-family: var(--font-main);
+  --link-large-font-size: 16px;
+  --link-large-line-height: 25.6px;
+  --link-large-font-weight: 400;
+
+  --link-medium-font-family: var(--font-medium);
+  --link-medium-font-size: 16px;
+  --link-medium-line-height: 24px;
+  --link-medium-font-weight: 500;
+
+  --link-xlarge-font-family: var(--font-semibold);
+  --link-xlarge-font-size: 18px;
+  --link-xlarge-line-height: 28px;
+  --link-xlarge-font-weight: 600;
+
+  /* Cells */
+  --cell-font-family: var(--font-semibold);
+  --cell-font-size: 14px;
+  --cell-line-height: 20px;
+  --cell-font-weight: 600;
+
+  --cell-large-font-family: var(--font-semibold);
+  --cell-large-font-size: 16px;
+  --cell-large-line-height: 25.6px;
+  --cell-large-font-weight: 600;
+
+  /* Data */
+  --data-font-family: var(--font-medium);
+  --data-font-size: 12px;
+  --data-line-height: 16px;
+  --data-font-weight: 500;
+
+  --data-large-font-family: var(--font-main);
+  --data-large-font-size: 16px;
+  --data-large-line-height: 25.6px;
+  --data-large-font-weight: 400;
+
+  --data-large-medium-font-family: var(--font-medium);
+  --data-large-medium-font-size: 16px;
+  --data-large-medium-line-height: 25.6px;
+  --data-large-medium-font-weight: 500;
+
+  /* Montserrat (Outfit) Variants */
+  --montserrat-light-upper-font-family: var(--font-light);
+  --montserrat-light-upper-font-size: 14px;
+  --montserrat-light-upper-line-height: 20px;
+  --montserrat-light-upper-font-weight: 300;
+
+  --montserrat-medium-font-family: var(--font-medium);
+  --montserrat-medium-font-size: 12px;
+  --montserrat-medium-line-height: 16px;
+  --montserrat-medium-font-weight: 500;
+
+  --montserrat-medium-large-font-family: var(--font-medium);
+  --montserrat-medium-large-font-size: 14px;
+  --montserrat-medium-large-line-height: 20px;
+  --montserrat-medium-large-font-weight: 500;
+
+  --montserrat-medium-xlarge-font-family: var(--font-medium);
+  --montserrat-medium-xlarge-font-size: 16px;
+  --montserrat-medium-xlarge-line-height: 25.6px;
+  --montserrat-medium-xlarge-font-weight: 500;
+
+  --montserrat-medium-upper-font-family: var(--font-medium);
+  --montserrat-medium-upper-font-size: 12px;
+  --montserrat-medium-upper-line-height: 16px;
+  --montserrat-medium-upper-font-weight: 500;
+
+  --montserrat-light-font-family: var(--font-light);
+  --montserrat-light-font-size: 18px;
+  --montserrat-light-line-height: 28.8px;
+  --montserrat-light-font-weight: 300;
+
+  --montserrat-medium-upper-large-font-family: var(--font-medium);
+  --montserrat-medium-upper-large-font-size: 14px;
+  --montserrat-medium-upper-large-line-height: 20px;
+  --montserrat-medium-upper-large-font-weight: 500;
+
+  --montserrat-regular-font-family: var(--font-main);
+  --montserrat-regular-font-size: 14px;
+  --montserrat-regular-line-height: 22.75px;
+  --montserrat-regular-font-weight: 400;
+
+  --montserrat-regular-alt-font-family: var(--font-main);
+  --montserrat-regular-alt-font-size: 14px;
+  --montserrat-regular-alt-line-height: 20px;
+  --montserrat-regular-alt-font-weight: 400;
+
+  --montserrat-regular-xlarge-font-family: var(--font-main);
+  --montserrat-regular-xlarge-font-size: 16px;
+  --montserrat-regular-xlarge-line-height: 26px;
+  --montserrat-regular-xlarge-font-weight: 400;
+
+  --montserrat-regular-xxlarge-font-family: var(--font-main);
+  --montserrat-regular-xxlarge-font-size: 18px;
+  --montserrat-regular-xxlarge-line-height: 29.25px;
+  --montserrat-regular-xxlarge-font-weight: 400;
+
+  --montserrat-semibold-font-family: var(--font-semibold);
+  --montserrat-semibold-font-size: 18px;
+  --montserrat-semibold-line-height: 28px;
+  --montserrat-semibold-font-weight: 600;
+}
+
+/* =========================
+    SPACING & RADIUS VARIABLES
+    ========================= */
+:root {
+  --radius-default: 8px;
+  --radius-small: 4px;
+  --radius-large: 16px;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+/* =========================
+    EFFECTS
+    ========================= */
+/* Add shadow, blur, etc. variables here if needed */
