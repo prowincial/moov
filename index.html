@@ -76,8 +76,8 @@
                                 with personalized programming to deliver results that last.
                             </p>
                         </div>
-                        <a class="about-us-learn-more" href="#about-details">
-                            <span>Learn More</span>
+                        <a class="about-us-learn-more" href="#" id="about-learn-more-btn">
+                            <span id="about-learn-more-text">Learn More</span>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M8 3.33L12.67 8L8 12.67" stroke="white" stroke-width="1.33"/>
                             </svg>
@@ -91,6 +91,60 @@
                                 <div class="about-us-badge-title">All Personal Trainers Are</div>
                                 <div class="about-us-badge-subtitle">Certified Physiotherapists</div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="more-about-us" class="more-about-us" style="display: none;">
+                <div class="moov-approach-wrapper">
+                    <div class="moov-approach-content">
+                        <div class="moov-approach-header">
+                            <div class="moov-approach-divider"></div>
+                            <img class="moov-approach-logo" src="./img/moov_run.png" alt="MOOV Logo" />
+                            <div class="moov-approach-divider"></div>
+                        </div>
+                        <div class="moov-approach-title">The MOOV Approach</div>
+                        <div class="moov-approach-details">
+                            <div class="moov-approach-item moov-approach-bg">
+                                <div>
+                                    <span class="moov-approach-item-title">Physiotherapy meets fitness.</span>
+                                    <span class="moov-approach-item-desc">
+                                        Our unique approach combines medical expertise with<br>
+                                        innovative training methods. Every workout is designed with your body's specific needs in<br>
+                                        mind, ensuring maximum effectiveness while minimizing injury risk.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="moov-approach-item moov-approach-gradient">
+                                <div>
+                                    <span class="moov-approach-item-title">Small groups, big results.</span>
+                                    <span class="moov-approach-item-desc">
+                                        Group classes are capped at 6 participants, while our personal<br>
+                                        training zone accommodates only 4 people at a time. This allows for personalized attention,<br>
+                                        proper form correction, and a supportive community atmosphere.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="moov-approach-item moov-approach-bg">
+                                <div>
+                                    <span class="moov-approach-item-title">Smart, safe, and effective.</span>
+                                    <span class="moov-approach-item-desc">
+                                        Our mission is simple: deliver workouts that are intelligently<br>
+                                        designed, medically sound, and proven to work. No generic programs, no crowded spaces —<br>
+                                        just professional care tailored to you.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="moov-approach-cta">
+                            <div class="moov-approach-cta-text">Ready to experience the MOOV difference?</div>
+                            <a class="moov-approach-cta-btn" href="#journey">
+                                <span>Start Your Journey</span>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 3.33L12.67 8L8 12.67" stroke="white" stroke-width="1.33"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -443,6 +497,26 @@
             </div>
         </footer>
     </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('about-learn-more-btn');
+    var btnText = document.getElementById('about-learn-more-text');
+    var moreSection = document.getElementById('more-about-us');
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (moreSection.style.display === 'none' || moreSection.style.display === '') {
+            moreSection.style.display = 'flex';
+            btnText.textContent = 'Learn Less';
+            setTimeout(function() {
+                moreSection.scrollIntoView({behavior: 'smooth'});
+            }, 100);
+        } else {
+            moreSection.style.display = 'none';
+            btnText.textContent = 'Learn More';
+        }
+    });
+});
+</script>
 </body>
-</html>
 </html>
