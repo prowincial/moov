@@ -869,17 +869,284 @@ section:not(.header):not(.footer) {
     align-items: flex-start;
 }
 
-.subscriptions-modal-close,
-.packages-modal-close {
+/* Packages Modal Custom Fullscreen */
+.packages-modal-content--custom {
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-grey-98, #FAFAF9);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.packages-modal-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 0 24px 64px 24px; /* убираем верхний паддинг */
+    box-sizing: border-box;
+    overflow-y: auto; /* если контент большой, скролл только внутри */
+}
+
+.packages-modal-header,
+.packages-modal-cards-row,
+.packages-modal-cta-block {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.packages-modal-title-row {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.packages-modal-cards-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.packages-modal-card {
+    width: 362px;
+    min-width: 280px;
+    max-width: 100%;
+    background: rgba(255,255,255,0.90);
+    box-shadow: 0px 1px 0px 1px rgba(255,255,255,0.60) inset;
+    overflow: hidden;
+    border-radius: 20px;
+    outline: 1px solid var(--color-grey-75-30, rgba(192,192,192,0.3));
+    outline-offset: -1px;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.packages-modal-card-image-wrapper {
+    width: 100%;
+    height: 192px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.packages-modal-card-image {
+    width: 100%;
+    max-width: 360px;
+    position: relative;
+    flex: 1 1 0;
+    height: 192px;
+    object-fit: cover;
+}
+
+.packages-modal-card-image-gradient {
+    width: 360px;
+    height: 192px;
+    left: 0;
+    top: 0;
     position: absolute;
-    top: 24px;
-    right: 24px;
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: var(--color-grey-dark);
-    cursor: pointer;
+    background: linear-gradient(0deg, var(--color-black-40, rgba(0,0,0,0.40)) 0%, var(--color-black-0, rgba(0,0,0,0)) 50%, var(--color-black-0, rgba(0,0,0,0)) 100%);
+}
+
+.packages-modal-card-icon {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 48px;
+    height: 48px;
+    background: var(--color-white-20, rgba(255,255,255,0.20));
+    border-radius: 44739200px;
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 3;
+}
+
+.packages-modal-card-content {
+    align-self: stretch;
+    padding: 24px 24px 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.packages-modal-card-title,
+.packages-modal-card-subtitle,
+.packages-modal-card-desc,
+.packages-modal-card-link {
+    width: 100%;
+    word-break: break-word;
+}
+
+.packages-modal-card-link {
+    margin-top: 8px;
+}
+
+.subscriptions-modal-content--custom {
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-grey-98, #FAFAF9);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+.subscriptions-modal-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 0 24px 64px 24px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* Cards grid for subscriptions modal (2x2) */
+.subscriptions-modal-cards-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    grid-template-rows: repeat(2, auto);
+    gap: 32px;
+    margin: 0 auto;
+    justify-items: center;
+    align-items: stretch;
+}
+
+.subscriptions-modal-card {
+    width: 362px;
+    min-width: 280px;
+    max-width: 100%;
+    background: rgba(255,255,255,0.90);
+    box-shadow: 0px 1px 0px 1px rgba(255,255,255,0.60) inset;
+    overflow: hidden;
+    border-radius: 20px;
+    outline: 1px solid var(--color-grey-75-30, rgba(192,192,192,0.3));
+    outline-offset: -1px;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.subscriptions-modal-card-image-wrapper {
+    width: 100%;
+    height: 192px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.subscriptions-modal-card-image {
+    width: 100%;
+    max-width: 360px;
+    position: relative;
+    flex: 1 1 0;
+    height: 192px;
+    object-fit: cover;
+}
+
+.subscriptions-modal-card-image-gradient {
+    width: 360px;
+    height: 192px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: linear-gradient(0deg, var(--color-black-40, rgba(0,0,0,0.40)) 0%, var(--color-black-0, rgba(0,0,0,0)) 50%, var(--color-black-0, rgba(0,0,0,0)) 100%);
+}
+
+.subscriptions-modal-card-icon {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 48px;
+    height: 48px;
+    background: var(--color-white-20, rgba(255,255,255,0.20));
+    border-radius: 44739200px;
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.subscriptions-modal-card-content {
+    align-self: stretch;
+    padding: 24px 24px 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.subscriptions-modal-card-title,
+.subscriptions-modal-card-subtitle,
+.subscriptions-modal-card-desc,
+.subscriptions-modal-card-link {
+    width: 100%;
+    word-break: break-word;
+}
+
+.subscriptions-modal-card-link {
+    margin-top: 8px;
+}
+
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 900px) {
+    .subscriptions-modal-inner {
+        max-width: 100vw;
+        padding: 16px 8px 32px 8px;
+    }
+    .subscriptions-modal-header,
+    .subscriptions-modal-title-row,
+    .subscriptions-modal-cards-row,
+    .subscriptions-modal-cta-block {
+        max-width: 100vw;
+        width: 100vw;
+    }
+    .subscriptions-modal-cards-row {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 24px;
+    }
+    .subscriptions-modal-card {
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 0;
+    }
 }
 
 /* Footer */
@@ -1336,7 +1603,7 @@ body > .desktop + script {
     width: 232px;
     height: 36px;
     background: var(--color-blue-38, #1001C0);
-    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.20) inset;
+    box-shadow: 0px 1px 0px rgba(255,255,255,0.20) inset;
     border-radius: 16px;
     display: flex;
     align-items: center;
