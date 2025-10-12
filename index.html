@@ -418,90 +418,304 @@
             </section>
 
             <section id="schedule" class="schedule">
-                <div class="container32">
-                    <div class="schedule-header">
-                        <hr class="horizontal-divider2" />
-                        <h2 class="schedule-title">Schedule</h2>
-                        <h3 class="heading-2-group-class-schedule">Group Class Schedule</h3>
-                        <p class="schedule-description">
-                            Join our expertly designed group classes led by certified physiotherapists. Each session is limited to 6 participants for personalized attention.
-                        </p>
+                <div class="schedule-container">
+                    <div class="schedule-header-block">
+                        <div class="schedule-title-row">
+                            <div class="schedule-divider"></div>
+                            <div class="schedule-title">Schedule</div>
+                        </div>
+                        <div class="schedule-subtitle">Group Class Schedule</div>
+                        <div class="schedule-description">
+                            Join our expertly designed group classes led by certified physiotherapists. Each<br>
+                            session is limited to 6 participants for personalized attention.
+                        </div>
                     </div>
-                    <div class="schedule-table">
-                        <!-- Table structure, use <table> for accessibility -->
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Time</th>
-                                    <th>Monday</th>
-                                    <th>Tuesday</th>
-                                    <th>Wednesday</th>
-                                    <th>Thursday</th>
-                                    <th>Friday</th>
-                                    <th>Saturday</th>
-                                    <th>Sunday</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Repeat for each row/time slot -->
-                                <tr>
-                                    <td>6:30 AM</td>
-                                    <td>—</td>
-                                    <td>Physiotherapy Fitness</td>
-                                    <td>—</td>
-                                    <td>Physiotherapy Fitness</td>
-                                    <td>—</td>
-                                    <td>—</td>
-                                    <td>—</td>
-                                </tr>
-                                <!-- ...other rows... -->
-                            </tbody>
-                        </table>
+                    <div class="schedule-table-wrapper">
+                        <div class="schedule-table">
+                            <div class="schedule-table-header">
+                                <div class="schedule-table-cell schedule-table-cell--time">Time</div>
+                                <div class="schedule-table-cell">Monday</div>
+                                <div class="schedule-table-cell">Tuesday</div>
+                                <div class="schedule-table-cell">Wednesday</div>
+                                <div class="schedule-table-cell">Thursday</div>
+                                <div class="schedule-table-cell">Friday</div>
+                                <div class="schedule-table-cell">Saturday</div>
+                                <div class="schedule-table-cell">Sunday</div>
+                            </div>
+                            <!-- 6:30 AM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>6:30<br>AM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Physiotherapy<br>Fitness</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Physiotherapy<br>Fitness</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                            </div>
+                            <!-- 7:00 AM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>7:00<br>AM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Morning<br>Movement</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Morning<br>Movement</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Morning<br>Movement</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                            </div>
+                            <!-- 12:00 PM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>12:00<br>PM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Core & Strength</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Injury<br>Prevention</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Athletic<br>Performance</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Active<br>Recovery</span></div>
+                            </div>
+                            <!-- 12:30 PM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>12:30<br>PM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Posture<br>Correction</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Core & Movement</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                            </div>
+                            <!-- 5:30 PM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>5:30<br>PM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Athletic<br>Conditioning</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Functional<br>Training</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                            </div>
+                            <!-- 6:00 PM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>6:00<br>PM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Functional<br>Training</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Strength &<br>Stability</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Weekend Prep</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                            </div>
+                            <!-- 7:00 PM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>7:00<br>PM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Flexibility Focus</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Recovery Session</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                            </div>
+                            <!-- 7:30 PM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>7:30<br>PM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Recovery &<br>Mobility</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Mind-Body<br>Balance</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Stretch & Relax</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                            </div>
+                            <!-- 9:00 AM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>9:00<br>AM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Weekend<br>Warrior</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                            </div>
+                            <!-- 10:00 AM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>10:00<br>AM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Sunday<br>Restore</span></div>
+                            </div>
+                            <!-- 11:00 AM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>11:00<br>AM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Family Fitness</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                            </div>
+                            <!-- 1:00 PM row -->
+                            <div class="schedule-table-row">
+                                <div class="schedule-table-cell schedule-table-cell--time"><span>1:00<br>PM</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                                <div class="schedule-table-cell schedule-table-cell--event"><span>Open Training</span></div>
+                                <div class="schedule-table-cell schedule-table-cell--empty">—</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="schedule-info">
-                        <img class="moov4" src="moov3.png" alt="" />
-                        <span>All classes limited to 5 participants</span>
-                        <span>Booking required 24 hours in advance • Drop-in sessions available</span>
+                    <div class="schedule-info-block">
+                        <img class="schedule-info-icon" src="./img/moov_run.png" alt="MOOV Icon" />
+                        <div class="schedule-info-title">All classes limited to 5 participants</div>
+                        <div class="schedule-info-desc">Booking required 24 hours in advance • Drop-in sessions available</div>
                     </div>
                 </div>
             </section>
 
             <section id="faq" class="faq">
-                <div class="container33">
-                    <div class="faq-header">
-                        <hr class="horizontal-divider2" />
-                        <h2 class="faq-title">FAQ</h2>
-                        <h3 class="heading-2-frequently-asked-questions">Frequently Asked Questions</h3>
-                        <p class="faq-description">
-                            Get answers to common questions about MOOV Sport Studio and our personalized training approach.
-                        </p>
+                <div class="faq-container">
+                    <div class="faq-header-block">
+                        <div class="faq-title-row">
+                            <div class="faq-divider"></div>
+                            <div class="faq-title">FAQ</div>
+                        </div>
+                        <div class="faq-subtitle">Frequently Asked Questions</div>
+                        <div class="faq-description">
+                            Get answers to common questions about MOOV Sport Studio and our personalized<br>
+                            training approach.
+                        </div>
                     </div>
                     <div class="faq-list">
-                        <!-- Repeat for each FAQ -->
-                        <details>
-                            <summary>
-                                What makes MOOV different from a regular gym?
-                                <img class="svg15" src="svg18.svg" alt="" />
-                            </summary>
-                            <!-- Answer goes here if available -->
-                        </details>
-                        <!-- ...other FAQs... -->
+                        <div class="faq-card">
+                            <div class="faq-card-inner">
+                                <span class="faq-question">What makes MOOV different from a regular gym?</span>
+                                <span class="faq-arrow">
+                                    <svg viewBox="0 0 8 4" fill="none"><path d="M0 0L4 4L8 0" stroke="#44403C" stroke-width="1.33"/></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer" style="display:none;">
+                                MOOV offers evidence-based training led by certified physiotherapists, small group sizes, and personalized programs focused on health and safety.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-card-inner">
+                                <span class="faq-question">Do I need training experience to start?</span>
+                                <span class="faq-arrow">
+                                    <svg viewBox="0 0 8 4" fill="none"><path d="M0 0L4 4L8 0" stroke="#44403C" stroke-width="1.33"/></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer" style="display:none;">
+                                No experience is needed. Our trainers will guide you from your first session and adapt the program to your level.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-card-inner">
+                                <span class="faq-question">How many people can join group or personal sessions?</span>
+                                <span class="faq-arrow">
+                                    <svg viewBox="0 0 8 4" fill="none"><path d="M0 0L4 4L8 0" stroke="#44403C" stroke-width="1.33"/></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer" style="display:none;">
+                                Group classes are limited to 6 participants. Personal training zone accommodates up to 4 people at a time.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-card-inner">
+                                <span class="faq-question">Do you offer sessions for people recovering from injuries or with posture problems?</span>
+                                <span class="faq-arrow">
+                                    <svg viewBox="0 0 8 4" fill="none"><path d="M0 0L4 4L8 0" stroke="#44403C" stroke-width="1.33"/></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer" style="display:none;">
+                                Yes, our physiotherapists specialize in rehabilitation and corrective exercise for injuries and posture issues.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-card-inner">
+                                <span class="faq-question">What membership options are available?</span>
+                                <span class="faq-arrow">
+                                    <svg viewBox="0 0 8 4" fill="none"><path d="M0 0L4 4L8 0" stroke="#44403C" stroke-width="1.33"/></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer" style="display:none;">
+                                We offer monthly subscriptions and flexible packages for individual, group, and split training.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-card-inner">
+                                <span class="faq-question">Can I freeze my membership?</span>
+                                <span class="faq-arrow">
+                                    <svg viewBox="0 0 8 4" fill="none"><path d="M0 0L4 4L8 0" stroke="#44403C" stroke-width="1.33"/></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer" style="display:none;">
+                                Yes, you can freeze your membership for up to 2 months per year. Contact us for details.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-card-inner">
+                                <span class="faq-question">What are your business hours?</span>
+                                <span class="faq-arrow">
+                                    <svg viewBox="0 0 8 4" fill="none"><path d="M0 0L4 4L8 0" stroke="#44403C" stroke-width="1.33"/></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer" style="display:none;">
+                                We are open Mon–Sat: 6:00–22:00, Sunday: 9:00–14:00.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-card-inner">
+                                <span class="faq-question">Do you accept Multisport or Medicover?</span>
+                                <span class="faq-arrow">
+                                    <svg viewBox="0 0 8 4" fill="none"><path d="M0 0L4 4L8 0" stroke="#44403C" stroke-width="1.33"/></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer" style="display:none;">
+                                Currently, we do not accept Multisport or Medicover cards.
+                            </div>
+                        </div>
+                        <div class="faq-card">
+                            <div class="faq-card-inner">
+                                <span class="faq-question">How do I book my first session?</span>
+                                <span class="faq-arrow">
+                                    <svg viewBox="0 0 8 4" fill="none"><path d="M0 0L4 4L8 0" stroke="#44403C" stroke-width="1.33"/></svg>
+                                </span>
+                            </div>
+                            <div class="faq-answer" style="display:none;">
+                                You can book your first session online, by phone, or by visiting our studio.
+                            </div>
+                        </div>
                     </div>
-                    <div class="faq-contact">
-                        <img class="svg24" src="svg27.svg" alt="" />
-                        <img class="moov5" src="moov4.png" alt="" />
-                        <h4>Still have questions?</h4>
-                        <p>
-                            Our team is here to help you understand how MOOV can support your health and fitness journey.
-                        </p>
-                        <div class="contact-options">
-                            <a class="button get-started2" href="#get-started">
-                                <img class="svg25" src="svg28.svg" alt="" />
+                    <div class="faq-contact-block">
+                        <div class="faq-contact-row">
+                            <span class="faq-contact-icon"></span>
+                            <img class="faq-contact-img" src="./img/moov_run.png" alt="MOOV Icon" />
+                        </div>
+                        <div class="faq-contact-title">Still have questions?</div>
+                        <div class="faq-contact-description">
+                            Our team is here to help you understand how MOOV can<br>
+                            support your health and fitness journey.
+                        </div>
+                        <div class="faq-contact-actions">
+                            <a class="faq-contact-btn" href="#get-started">
+                                <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.67" stroke="white" stroke-width="1.33"/></svg>
                                 Get Started
                             </a>
-                            <span>or</span>
-                            <img class="svg26" src="svg29.svg" alt="" />
-                            <a class="call-link" href="tel:+48515723597">Call +48 515 723 597</a>
+                            <span class="faq-contact-or">or</span>
+                            <span class="faq-contact-call-icon"></span>
+                            <a class="faq-contact-call" href="tel:+48515723597">Call +48 515 723 597</a>
                         </div>
                     </div>
                 </div>
@@ -717,6 +931,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     packagesModal.querySelector('.packages-modal-overlay').addEventListener('click', function() {
         packagesModal.style.display = 'none';
+    });
+
+    // FAQ accordion logic
+    document.querySelectorAll('.faq-card').forEach(function(card) {
+        var arrow = card.querySelector('.faq-arrow');
+        var answer = card.querySelector('.faq-answer');
+        arrow.addEventListener('click', function() {
+            var isOpen = answer.style.display === 'block';
+            // Закрыть все ответы
+            document.querySelectorAll('.faq-answer').forEach(function(a) {
+                a.style.display = 'none';
+            });
+            document.querySelectorAll('.faq-arrow svg').forEach(function(svg) {
+                svg.style.transform = '';
+            });
+            // Открыть текущий, если был закрыт
+            if (!isOpen) {
+                answer.style.display = 'block';
+                arrow.querySelector('svg').style.transform = 'rotate(180deg)';
+            }
+        });
     });
 });
 </script>

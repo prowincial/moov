@@ -1068,7 +1068,6 @@ section:not(.header):not(.footer) {
     height: 20px;
     background: url('svg31.svg') no-repeat center center;
     background-size: contain;
-    display: inline-block;
 }
 
 .footer-contact-phone {
@@ -1514,5 +1513,536 @@ body > .desktop + script {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+/* FAQ Section */
+.faq {
+    width: 100%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 171px;
+    padding-right: 171px;
+    background: var(--color-white-solid, white);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.faq-container {
+    width: 1200px;
+    padding-left: 64px;
+    padding-right: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 85px;
+}
+
+.faq-header-block {
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+
+.faq-title-row {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+}
+
+.faq-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--color-blue-38, #1001C0);
+}
+
+.faq-title {
+    width: 35px;
+    height: 20px;
+    color: var(--color-grey-32, #57534E);
+    font-size: 14px;
+    font-family: Outfit, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 20px;
+    letter-spacing: 1.4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-subtitle {
+    color: var(--color-orange-4, #0C0A09);
+    font-size: 16px;
+    font-family: Outfit, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.faq-description {
+    color: var(--color-grey-25, #44403C);
+    font-size: 18px;
+    font-family: Outfit, sans-serif;
+    font-weight: 400;
+    line-height: 29.25px;
+}
+
+/* FAQ Questions List */
+.faq-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.faq-card {
+    width: 1050px;
+    padding: 8px 41px;
+    background: rgba(255,255,255,0.90);
+    box-shadow: 0px 1px 0px rgba(255,255,255,0.60) inset;
+    border-radius: 24px;
+    border-left: 0.56px solid var(--color-grey-75-30, rgba(192,192,192,0.3));
+    border-top: 0.56px solid var(--color-grey-75-30, rgba(192,192,192,0.3));
+    border-right: 0.56px solid var(--color-grey-75-30, rgba(192,192,192,0.3));
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-card-inner {
+    width: 100%;
+    min-height: 56px;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.faq-question {
+    color: var(--color-orange-4, #0C0A09);
+    font-size: 20px;
+    font-family: Outfit, sans-serif;
+    font-weight: 600;
+    line-height: 32.5px;
+    word-wrap: break-word;
+    display: flex;
+    align-items: center;
+}
+
+.faq-arrow {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-arrow svg {
+    width: 8px;
+    height: 4px;
+    display: block;
+}
+
+.faq-card:not(:last-child) {
+    margin-bottom: 0;
+}
+
+/* FAQ Contact Block */
+.faq-contact-block {
+    width: 100%;
+    padding: 49px 69px;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0px 1px 0px 1px rgba(255,255,255,0.70) inset;
+    border-radius: 24px;
+    outline: 1px solid var(--color-grey-69-40, rgba(176,176,176,0.4));
+    outline-offset: -1px;
+    backdrop-filter: blur(14px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 27px;
+}
+
+.faq-contact-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.faq-contact-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--color-azure-60, #3B82F6);
+    display: inline-block;
+}
+
+.faq-contact-img {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.faq-contact-title {
+    color: var(--color-orange-4, #0C0A09);
+    font-size: 24px;
+    font-family: Outfit, sans-serif;
+    font-weight: 600;
+    line-height: 32px;
+    text-align: center;
+}
+
+.faq-contact-description {
+    color: var(--color-grey-25, #44403C);
+    font-size: 18px;
+    font-family: Outfit, sans-serif;
+    font-weight: 400;
+    line-height: 29.25px;
+    text-align: center;
+}
+
+.faq-contact-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.faq-contact-btn {
+    width: 174px;
+    height: 40px;
+    background: var(--color-blue-38, #1001C0);
+    box-shadow: 0px 1px 0px rgba(255,255,255,0.20) inset;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    color: var(--color-white-solid, white);
+    font-size: 18px;
+    font-family: Outfit, sans-serif;
+    font-weight: 600;
+    line-height: 28px;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.faq-contact-btn svg {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.faq-contact-or {
+    color: var(--color-grey, #78716C);
+    font-size: 16px;
+    font-family: Outfit, sans-serif;
+    font-weight: 400;
+    line-height: 25.6px;
+    text-align: center;
+}
+
+.faq-contact-call-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.67px solid var(--color-azure-53, #2563EB);
+    display: inline-block;
+}
+
+.faq-contact-call {
+    color: var(--color-azure-53, #2563EB);
+    font-size: 18px;
+    font-family: Outfit, sans-serif;
+    font-weight: 600;
+    line-height: 28px;
+    text-align: center;
+}
+
+.faq-answer {
+    width: 100%;
+    margin-top: 8px;
+    color: var(--color-grey-25, #44403C);
+    font-size: 16px;
+    font-family: Outfit, sans-serif;
+    font-weight: 400;
+    line-height: 26px;
+    background: none;
+    border-radius: 10px;
+    padding: 0 0 8px 0;
+    transition: all 0.2s;
+    display: none;
+}
+
+.faq-arrow svg {
+    transition: transform 0.2s;
+}
+
+/* Schedule Section */
+.schedule {
+    width: 100%;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-left: 171px;
+    padding-right: 171px;
+    background: var(--color-white-solid, white);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.schedule-container {
+    flex: 1 1 0;
+    padding-left: 64px;
+    padding-right: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 58px;
+}
+
+.schedule-header-block {
+    width: 710px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+
+.schedule-title-row {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+}
+
+.schedule-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--color-blue-38, #1001C0);
+}
+
+.schedule-title {
+    width: 91px;
+    height: 20px;
+    color: var(--color-grey-32, #57534E);
+    font-size: 14px;
+    font-family: Outfit, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 20px;
+    letter-spacing: 1.4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schedule-subtitle {
+    color: var(--color-orange-4, #0C0A09);
+    font-size: 16px;
+    font-family: Outfit, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.schedule-description {
+    color: var(--color-grey-25, #44403C);
+    font-size: 18px;
+    font-family: Outfit, sans-serif;
+    font-weight: 400;
+    line-height: 29.25px;
+}
+
+/* Schedule Table */
+.schedule-table-wrapper {
+    align-self: stretch;
+    padding: 33px;
+    background: rgba(255,255,255,0.90);
+    box-shadow: 0px 1px 0px 1px rgba(255,255,255,0.60) inset;
+    border-radius: 24px;
+    outline: 1px solid var(--color-grey-75-30, rgba(192,192,192,0.3));
+    outline-offset: -1px;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.schedule-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.schedule-table-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border-bottom: 0.56px solid var(--color-grey-90-50, rgba(231,229,228,0.5));
+}
+
+.schedule-table-cell {
+    flex: 0 0 1;
+    min-width: 120px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-right: none;
+    border-bottom: none;
+    font-family: Outfit, sans-serif;
+    box-sizing: border-box;
+}
+
+.schedule-table-cell--time {
+    min-width: 60px;
+    color: var(--color-grey-10, #1C1917);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 25.6px;
+}
+
+.schedule-table-header .schedule-table-cell {
+    color: var(--color-grey-10, #1C1917);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    background: none;
+    border-bottom: 0.56px solid var(--color-grey-90-50, rgba(231,229,228,0.5));
+}
+
+.schedule-table-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    border-bottom: 0.56px solid var(--color-grey-90-30, rgba(231,229,228,0.3));
+}
+
+.schedule-table-row:last-child {
+    border-bottom: none;
+}
+
+.schedule-table-row .schedule-table-cell {
+    min-width: 120px;
+    height: 84px;
+    font-size: 16px;
+    font-family: Outfit, sans-serif;
+    font-weight: 400;
+    line-height: 25.6px;
+    background: none;
+    border-bottom: none;
+    border-right: none;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.schedule-table-cell--time span {
+    color: var(--color-blue-38, #1001C0);
+    font-size: 16px;
+    font-family: Outfit, sans-serif;
+    font-weight: 500;
+    line-height: 25.6px;
+    text-align: center;
+    display: block;
+}
+
+.schedule-table-cell--empty {
+    color: var(--color-grey-83, #D6D3D1);
+    font-size: 16px;
+    font-family: Outfit, sans-serif;
+    font-weight: 400;
+    line-height: 25.6px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schedule-table-cell--event {
+    background: var(--color-blue-38-5, rgba(16,1,192,0.05));
+    border-radius: 20px;
+    outline: 1px solid var(--color-blue-38-20, rgba(16,1,192,0.20));
+    outline-offset: -1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 96px;
+    height: 49px;
+    margin: auto;
+}
+
+.schedule-table-cell--event span {
+    color: var(--color-grey-10, #1C1917);
+    font-size: 12px;
+    font-family: Outfit, sans-serif;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+    display: block;
+    word-break: break-word;
+}
+
+/* Schedule Info Block */
+.schedule-info-block {
+    align-self: stretch;
+    padding-left: 95px;
+    padding-right: 95px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0px 1px 0px 1px rgba(255,255,255,0.70) inset;
+    border-radius: 16px;
+    outline: 1px solid var(--color-grey-69-40, rgba(176,176,176,0.4));
+    outline-offset: -1px;
+    backdrop-filter: blur(14px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+}
+
+.schedule-info-icon {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.schedule-info-title {
+    color: var(--color-orange-4, #0C0A09);
+    font-size: 16px;
+    font-family: Outfit, sans-serif;
+    font-weight: 500;
+    line-height: 25.6px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.schedule-info-desc {
+    color: var(--color-grey-32, #57534E);
+    font-size: 14px;
+    font-family: Outfit, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
