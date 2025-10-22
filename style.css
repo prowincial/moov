@@ -694,7 +694,7 @@ section:not(.header):not(.footer) {
     box-shadow: 0px 1px 0px 1px rgba(255,255,255,0.60) inset;
     overflow: hidden;
     border-radius: 20px;
-    outline: 1px solid var(--color-grey-75-30, rgba(192,192,192,0.3));
+    outline: 2px solid var(--color-grey-75-30); /* Увеличиваем толщину рамки до 2px */
     outline-offset: -1px;
     backdrop-filter: blur(12px);
     display: flex;
@@ -842,13 +842,48 @@ section:not(.header):not(.footer) {
     align-items: center;
 }
 
+/* Subscriptions Modal Fullscreen Centered */
+.subscriptions-modal-content--custom {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Центрируем окно */
+    width: 90vw; /* Уменьшаем ширину */
+    max-width: 800px; /* Ограничиваем максимальную ширину */
+    height: auto; /* Высота подстраивается под контент */
+    max-height: 90vh; /* Ограничиваем максимальную высоту */
+    background: var(--color-grey-98, #FAFAF9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Контент выравнивается сверху */
+    padding: 48px 32px;
+    overflow-y: auto; /* Добавляем прокрутку для длинного контента */
+    z-index: 9999;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18); /* Добавляем тень */
+    border-radius: 20px; /* Скругляем углы */
+}
+
+/* Subscriptions Modal Overlay */
+.subscriptions-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон */
+    z-index: 9998; /* На один уровень ниже контента */
+}
+
+/* Overlay for both modals */
 .subscriptions-modal-overlay,
 .packages-modal-overlay {
     position: absolute;
-    left: 0; top: 0; right: 0; bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.4);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
@@ -858,7 +893,7 @@ section:not(.header):not(.footer) {
     z-index: 2;
     background: var(--color-white-solid, #fff);
     border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
     padding: 48px 32px;
     max-width: 800px;
     width: 90vw;
@@ -872,15 +907,21 @@ section:not(.header):not(.footer) {
 /* Packages Modal Custom Fullscreen */
 .packages-modal-content--custom {
     position: fixed;
-    left: 0; top: 0; right: 0; bottom: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Центрируем окно */
     width: 100vw;
     height: 100vh;
     background: var(--color-grey-98, #FAFAF9);
-    padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Центрируем контент */
+    padding: 48px 32px;
     overflow-y: auto;
     z-index: 9999;
+    box-shadow: none; /* Убираем тень */
+    border-radius: 0; /* Убираем скругления */
 }
 
 .packages-modal-inner {
@@ -924,20 +965,20 @@ section:not(.header):not(.footer) {
 
 .packages-modal-card {
     width: 362px;
-    min-width: 280px;
-    max-width: 100%;
+    height: 470px;
+    padding: 24px;
     background: rgba(255,255,255,0.90);
     box-shadow: 0px 1px 0px 1px rgba(255,255,255,0.60) inset;
     overflow: hidden;
     border-radius: 20px;
-    outline: 1px solid var(--color-grey-75-30, rgba(192,192,192,0.3));
+    outline: 2px solid var(--color-grey-75-30); /* Увеличиваем толщину рамки до 2px */
     outline-offset: -1px;
     backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 24px;
+    gap: 24px; /* Ensure consistent spacing */
 }
 
 .packages-modal-card-image-wrapper {
@@ -1006,15 +1047,23 @@ section:not(.header):not(.footer) {
 
 .subscriptions-modal-content--custom {
     position: fixed;
-    left: 0; top: 0; right: 0; bottom: 0;
-    width: 100vw;
-    height: 100vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Центрируем окно */
+    width: 90vw; /* Уменьшаем ширину */
+    max-width: 800px; /* Ограничиваем максимальную ширину */
+    height: auto; /* Высота подстраивается под контент */
+    max-height: 90vh; /* Ограничиваем максимальную высоту */
     background: var(--color-grey-98, #FAFAF9);
-    padding: 0;
     display: flex;
-    justify-content: center;
-    overflow-y: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Контент выравнивается сверху */
+    padding: 48px 32px;
+    overflow-y: auto; /* Добавляем прокрутку для длинного контента */
     z-index: 9999;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18); /* Добавляем тень */
+    border-radius: 20px; /* Скругляем углы */
 }
 
 .subscriptions-modal-inner {
@@ -1044,20 +1093,20 @@ section:not(.header):not(.footer) {
 
 .subscriptions-modal-card {
     width: 362px;
-    min-width: 280px;
-    max-width: 100%;
+    height: 470px;
+    padding: 24px;
     background: rgba(255,255,255,0.90);
     box-shadow: 0px 1px 0px 1px rgba(255,255,255,0.60) inset;
     overflow: hidden;
     border-radius: 20px;
-    outline: 1px solid var(--color-grey-75-30, rgba(192,192,192,0.3));
+    outline: 2px solid var(--color-grey-75-30); /* Увеличиваем толщину рамки до 2px */
     outline-offset: -1px;
     backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 24px;
+    gap: 24px; /* Ensure consistent spacing */
 }
 
 .subscriptions-modal-card-image-wrapper {
@@ -1629,6 +1678,20 @@ body > .desktop + script {
     width: 16px;
     height: 16px;
     display: inline-block;
+}
+
+/* Center align "Ready to start your journey?" block in modals */
+.subscriptions-modal-cta-block,
+.packages-modal-cta-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем по горизонтали */
+    justify-content: center; /* Центрируем по вертикали */
+    text-align: center; /* Центрируем текст */
+    gap: 16px; /* Уменьшаем отступы между строками */
+    border: 2px solid var(--color-grey-75-30); /* Одинаковая толщина рамки */
+    border-radius: 12px; /* Одинаковое скругление углов */
+    padding: 16px; /* Одинаковые внутренние отступы */
 }
 
 /* Senseys (Our Team) Section */
@@ -2312,4 +2375,383 @@ body > .desktop + script {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Back to main button styles */
+.subscriptions-modal-back-row,
+.packages-modal-back-row {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Add spacing between "Back to main" button and text */
+.subscriptions-modal-back-row,
+.packages-modal-back-row {
+    margin-bottom: 16px; /* Добавляем отступ */
+}
+
+.subscriptions-modal-close,
+.packages-modal-close {
+    width: auto;
+    height: auto;
+    padding: 9.33px 13.33px;
+    background: var(--color-white-solid, white);
+    border-radius: 10px;
+    outline: 1px solid var(--color-grey-83, #D6D3D1);
+    outline-offset: -1px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.subscriptions-modal-close svg,
+.packages-modal-close svg {
+    width: 16px;
+    height: 16px;
+    outline: 1.33px solid var(--color-orange-4, #0C0A09);
+    outline-offset: -0.67px;
+}
+
+.subscriptions-modal-back-text,
+.packages-modal-back-text {
+    color: var(--color-orange-4, #0C0A09);
+    font-size: 14px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    line-height: 20px;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+/* Subscriptions Modal Header */
+.subscriptions-modal-header {
+    width: 100%;
+    max-width: 1200px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 31px;
+    display: flex;
+}
+
+/* Add top margin to modal headers */
+.subscriptions-modal-header,
+.packages-modal-header {
+    margin-top: 32px; /* Отступ сверху для смещения текста */
+}
+
+.subscriptions-modal-title-row {
+    width: 100%;
+    max-width: 1200px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    display: flex;
+}
+
+.subscriptions-modal-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--color-blue-38, #1001C0);
+}
+
+.subscriptions-modal-title {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-grey-32, #57534E);
+    font-size: 14px;
+    font-family: Montserrat, sans-serif;
+       font-weight: 500;
+    text-transform: uppercase;
+    line-height: 20px;
+    letter-spacing: 1.4px;
+    word-wrap: break-word;
+}
+
+.subscriptions-modal-subtitle {
+    justify-content: center;
+    display: flex;
+       flex-direction: column;
+    color: var(--color-orange-4, #0C0A09);
+    font-size: 16px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    word-wrap: break-word;
+}
+
+.subscriptions-modal-desc {
+    width: 368px;
+    max-width: 768px;
+    padding-bottom: 1.04px;
+    flex-direction: column;
+                   justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    color: var(--color-grey-25, #44403C);
+    font-size: 18px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    line-height: 29.25px;
+    word-wrap: break-word;
+}
+
+/* Packages Modal Header */
+.packages-modal-header {
+    width: 100%;
+    max-width: 1200px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 31px;
+    display: flex;
+}
+
+.packages-modal-title-row {
+    width: 100%;
+    max-width: 1200px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    display: flex;
+}
+
+.packages-modal-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--color-blue-38, #1001C0);
+}
+
+.packages-modal-title {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-grey-32, #57534E);
+    font-size: 14px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 20px;
+    letter-spacing: 1.4px;
+    word-wrap: break-word;
+}
+
+.packages-modal-subtitle {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-orange-4, #0C0A09);
+    font-size: 16px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    word-wrap: break-word;
+}
+
+.packages-modal-desc {
+    width: 368px;
+    max-width: 768px;
+    padding-bottom: 1.04px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    color: var(--color-grey-25, #44403C);
+    font-size: 18px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    line-height: 29.25px;
+    word-wrap: break-word;
+}
+
+/* Ready to start your journey? */
+.subscriptions-modal-cta-title,
+.packages-modal-cta-title {
+    color: var(--color-orange-4, #0C0A09);
+    font-size: 20px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 28px;
+    word-wrap: break-word;
+}
+
+/* Book your first FREE consultation with one of our expert trainers today. */
+.subscriptions-modal-cta-desc,
+.packages-modal-cta-desc {
+    color: var(--color-grey-25, #44403C);
+    font-size: 16px;
+    font-family: Montserrat;
+    font-weight: 400;
+    line-height: 25.60px;
+    word-wrap: break-word;
+}
+
+/* Book Free Consultation */
+.subscriptions-modal-cta-btn,
+.packages-modal-cta-btn {
+    padding-left: 31px;
+    padding-right: 31px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background: var(--color-blue-38, #1001C0);
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.20) inset;
+    border-radius: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    display: inline-flex;
+    color: var(--color-white-solid, white);
+    font-size: 16px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 25.60px;
+    word-wrap: break-word;
+}
+
+/* Icon inside button */
+.subscriptions-modal-cta-btn div:first-child,
+.packages-modal-cta-btn div:first-child {
+    width: 16px;
+    height: 16px;
+    position: relative;
+}
+
+.subscriptions-modal-cta-btn div:first-child div,
+.packages-modal-cta-btn div:first-child div {
+    width: 12px;
+    height: 12px;
+    left: 2px;
+    top: 2.67px;
+    position: absolute;
+    outline: 1.33px var(--color-white-solid, white) solid;
+    outline-offset: -0.67px;
+}
+
+/* Ready to start your journey block */
+.ready-to-start {
+    width: 100%;
+    height: 100%;
+    padding: 17.33px 1.33px 1.33px 1.33px;
+    background: var(--color-white-90, rgba(255, 255, 255, 0.90));
+    box-shadow: 0px 1px 0px 1px rgba(255, 255, 255, 0.60) inset;
+    border-radius: 20px;
+    outline: 1px solid var(--color-grey-75-30, rgba(192, 192, 192, 0.30));
+    outline-offset: -1px;
+    backdrop-filter: blur(12px);
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.ready-to-start-content {
+    align-self: stretch;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+}
+
+.ready-to-start-title {
+    align-self: stretch;
+    text-align: center;
+    color: var(--color-orange-4, #0C0A09);
+    font-size: 20px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    line-height: 28px;
+    word-wrap: break-word;
+}
+
+.ready-to-start-desc {
+    align-self: stretch;
+    text-align: center;
+    color: var(--color-grey-25, #44403C);
+    font-size: 16px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    line-height: 25.6px;
+    word-wrap: break-word;
+    padding-bottom: 8px;
+}
+
+.ready-to-start-btn {
+    padding: 11px 31px;
+    background: var(--color-blue-38, #1001C0);
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.20) inset;
+    border-radius: 20px;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-white-solid, white);
+    font-size: 16px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    line-height: 25.6px;
+    word-wrap: break-word;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ready-to-start-btn-icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+}
+
+.ready-to-start-btn-icon-inner {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 2px;
+    top: 2.67px;
+    outline: 1.33px solid var(--color-white-solid, white);
+    outline-offset: -0.67px;
+}
+
+.ready-to-start-btn-text {
+    width: 194.35px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white-solid, white);
+    font-size: 16px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    line-height: 25.6px;
+    word-wrap: break-word;
 }
