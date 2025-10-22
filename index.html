@@ -24,7 +24,7 @@
                     <a class="nav-link" href="#faq">FAQ</a>
                     <a class="nav-link" href="#contact">Contact</a>
                 </nav>
-                <a class="get-started" href="#get-started">
+                <a class="get-started" href="#get-started" id="open-get-started-modal">
                     Get Started
                 </a>
             </div>
@@ -37,7 +37,7 @@
                         <h1 class="physiotherapy-personal-training">Physiotherapy & Personal Training</h1>
                         <h2 class="heading-1-strength-through-science">Strength Through Science</h2>
                         <hr class="horizontal-divider" />
-                        <a class="start-your-journey" href="#journey">
+                        <a class="start-your-journey" href="#get-started" id="open-get-started-modal">
                             Start Your Journey
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M8 3.33L12.67 8L8 12.67" stroke="black" stroke-width="1.33"/>
@@ -139,7 +139,7 @@
                         </div>
                         <div class="moov-approach-cta">
                             <div class="moov-approach-cta-text">Ready to experience the MOOV difference?</div>
-                            <a class="moov-approach-cta-btn" href="#journey">
+                            <a class="moov-approach-cta-btn" href="#get-started" id="open-get-started-modal">
                                 <span>Start Your Journey</span>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                     <path d="M8 3.33L12.67 8L8 12.67" stroke="white" stroke-width="1.33"/>
@@ -605,7 +605,7 @@
                             support your health and fitness journey.
                         </div>
                         <div class="faq-contact-actions">
-                            <a class="faq-contact-btn" href="#get-started">
+                            <a class="faq-contact-btn" href="#get-started" id="open-get-started-modal">
                                 <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.67" stroke="white" stroke-width="1.33"/></svg>
                                 Get Started
                             </a>
@@ -923,6 +923,40 @@
         </div>
     </section>
 
+    <!-- Get Started Modal -->
+    <section id="get-started-modal" class="get-started-modal" style="display: none;">
+        <div class="get-started-modal-overlay"></div>
+        <div class="get-started-modal-content">
+            <div class="get-started-modal-inner">
+                <div class="get-started-modal-back-row">
+                    <button class="get-started-modal-close" id="close-get-started-modal">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M10 13L5 8L10 3" stroke="#0C0A09" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="get-started-modal-back-text">Back to main</span>
+                    </button>
+                </div>
+                <div class="get-started-modal-header">
+                    <h2 class="get-started-modal-title">Get Started</h2>
+                    <p class="get-started-modal-desc">
+                        Enter your details below to begin your fitness journey with MOOV.
+                    </p>
+                </div>
+                <form class="get-started-modal-form">
+                    <div class="get-started-modal-field">
+                        <label for="client-name">Your Name</label>
+                        <input type="text" id="client-name" name="client-name" placeholder="Enter your name" required />
+                    </div>
+                    <div class="get-started-modal-field">
+                        <label for="client-contact">Email or Phone</label>
+                        <input type="text" id="client-contact" name="client-contact" placeholder="Enter your email or phone" required />
+                    </div>
+                    <button type="submit" class="get-started-modal-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <script>
 document.addEventListener('DOMContentLoaded', function() {
     var btn = document.getElementById('about-learn-more-btn');
@@ -970,6 +1004,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     packagesModal.querySelector('.packages-modal-overlay').addEventListener('click', function() {
         packagesModal.style.display = 'none';
+    });
+
+    // Get Started modal logic
+    var openGetStartedBtns = document.querySelectorAll('#open-get-started-modal');
+    var getStartedModal = document.getElementById('get-started-modal');
+    var closeGetStartedBtn = document.getElementById('close-get-started-modal');
+    openGetStartedBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            getStartedModal.style.display = 'flex';
+        });
+    });
+    closeGetStartedBtn.addEventListener('click', function() {
+        getStartedModal.style.display = 'none';
+    });
+    getStartedModal.querySelector('.get-started-modal-overlay').addEventListener('click', function() {
+        getStartedModal.style.display = 'none';
     });
 
     // FAQ accordion logic

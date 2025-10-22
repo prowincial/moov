@@ -2755,3 +2755,146 @@ body > .desktop + script {
     line-height: 25.6px;
     word-wrap: break-word;
 }
+
+/* Get Started Modal */
+.get-started-modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.get-started-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.get-started-modal-content {
+    position: relative;
+    z-index: 2;
+    background: var(--color-white-solid, #fff);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    padding: 48px 32px;
+    max-width: 600px;
+    width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.get-started-modal-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.get-started-modal-back-row {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.get-started-modal-header {
+    width: 100%;
+    text-align: center;
+}
+
+.get-started-modal-title {
+    font-size: 24px;
+    font-family: var(--font-bold);
+    color: var(--color-grey-32);
+}
+
+.get-started-modal-desc {
+    font-size: 16px;
+    font-family: var(--font-medium);
+    color: var(--color-grey-25);
+}
+
+.get-started-modal-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.get-started-modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.get-started-modal-field label {
+    font-size: 14px;
+    font-family: var(--font-medium);
+    color: var(--color-grey-32);
+}
+
+.get-started-modal-field input {
+    padding: 12px;
+    border: 1px solid var(--color-grey-75-30);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: var(--font-main);
+    color: var(--color-grey-25);
+    outline: none;
+}
+
+.get-started-modal-field input:focus {
+    border-color: var(--color-primary);
+}
+
+.get-started-modal-submit {
+    padding: 12px 24px;
+    background: var(--color-primary-light); /* Initially blue */
+    color: var(--color-white-solid);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: var(--font-semibold);
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.get-started-modal-submit:hover {
+    background: var(--color-primary); /* Darker blue on hover */
+}
+
+.get-started-modal-back-row button,
+.subscriptions-modal-back-row button,
+.packages-modal-back-row button {
+    padding: 9.33px 13.33px;
+    background: var(--color-primary-light); /* Blue background */
+    color: var(--color-white-solid);
+    border-radius: 10px;
+    outline: 1px solid var(--color-grey-83);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.get-started-modal-back-row button:hover,
+.subscriptions-modal-back-row button:hover,
+.packages-modal-back-row button:hover {
+    background: var(--color-primary); /* Darker blue on hover */
+}
