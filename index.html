@@ -229,7 +229,7 @@
                         </div>
                     </div>
                     <div class="coaches">
-                        <div class="coach-card">
+                        <div class="coach-card" data-name="Katarzyna" data-description="Certified physiotherapist with 10+ years of experience in rehabilitation and fitness." data-image="./img/kasia_trener.webp">
                             <img src="./img/kasia_trener.webp" alt="Katarzyna" width="336" height="288" />
                             <div class="coach-card-name">Katarzyna</div>
                             <div class="coach-card-divider"></div>
@@ -237,7 +237,7 @@
                                 Certified physiotherapist with 10+ years of experience in rehabilitation and fitness.
                             </div>
                         </div>
-                        <div class="coach-card">
+                        <div class="coach-card" data-name="Olga" data-description="Expert in strength training and injury prevention." data-image="./img/olga_trener.webp">
                             <img src="./img/olga_trener.webp" alt="Olga" />
                             <div class="coach-card-name">Olga</div>
                             <div class="coach-card-divider"></div>
@@ -245,7 +245,7 @@
                                 Expert in strength training and injury prevention.
                             </div>
                         </div>
-                        <div class="coach-card">
+                        <div class="coach-card" data-name="Filip" data-description="Specialist in functional movement and athletic performance." data-image="./img/filip_trener.webp">
                             <img src="./img/filip_trener.webp" alt="Filip" />
                             <div class="coach-card-name">Filip</div>
                             <div class="coach-card-divider"></div>
@@ -253,7 +253,7 @@
                                 Specialist in functional movement and athletic performance.
                             </div>
                         </div>
-                        <div class="coach-card">
+                        <div class="coach-card" data-name="Aleksander" data-description="Master trainer with expertise in strength and conditioning. Dedicated to creating personalized training programs for optimal results." data-image="./img/alek_trener.webp">
                             <img src="./img/alek_trener.webp" alt="Aleksander" />
                             <div class="coach-card-name">Aleksander</div>
                             <div class="coach-card-divider"></div>
@@ -264,7 +264,7 @@
                                 optimal results.
                             </div>
                         </div>
-                        <div class="coach-card">
+                        <div class="coach-card" data-name="Daniella" data-description="Movement specialist and wellness coach. Combines traditional training methods with modern recovery techniques." data-image="./img/dani_trener.webp">
                             <img src="./img/dani_trener.webp" alt="Daniella" />
                             <div class="coach-card-name">Daniella</div>
                             <div class="coach-card-divider"></div>
@@ -274,7 +274,7 @@
                                 with modern recovery techniques.
                             </div>
                         </div>
-                        <div class="coach-card">
+                        <div class="coach-card" data-name="Anastasia" data-description="Holistic fitness coach with certifications in yoga and pilates. Specializes in mind-body connection and flexibility training." data-image="./img/nastia_trener.webp">
                             <img src="./img/nastia_trener.webp" alt="Anastasia" />
                             <div class="coach-card-name">Anastasia</div>
                             <div class="coach-card-divider"></div>
@@ -938,6 +938,25 @@
         </div>
     </section>
 
+    <!-- Trainer Modal -->
+    <div id="trainer-modal" class="trainer-modal" style="display: none;">
+        <div class="trainer-modal-overlay"></div>
+        <div class="trainer-modal-content">
+            <button class="trainer-modal-close" id="close-trainer-modal">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M4 4L12 12M12 4L4 12" stroke="currentColor" />
+                </svg>
+            </button>
+            <div class="trainer-modal-inner">
+                <img id="trainer-modal-image" class="trainer-modal-image" src="" alt="Trainer" />
+                <div class="trainer-modal-details">
+                    <h2 id="trainer-modal-name" class="trainer-modal-name"></h2>
+                    <p id="trainer-modal-description" class="trainer-modal-description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
 document.addEventListener('DOMContentLoaded', function() {
     var btn = document.getElementById('about-learn-more-btn');
@@ -1003,6 +1022,128 @@ document.addEventListener('DOMContentLoaded', function() {
     getStartedModal.querySelector('.get-started-modal-overlay').addEventListener('click', function() {
         getStartedModal.style.display = 'none';
     });
+
+    // Trainer modal logic
+    const coachCards = document.querySelectorAll('.coach-card');
+    const trainerModal = document.getElementById('trainer-modal');
+    const modalImage = document.getElementById('trainer-modal-image');
+    const modalName = document.getElementById('trainer-modal-name');
+    const modalDescription = document.getElementById('trainer-modal-description');
+    const closeTrainerModalBtn = document.getElementById('close-trainer-modal');
+    const modalOverlay = trainerModal.querySelector('.trainer-modal-overlay');
+
+    coachCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const name = card.getAttribute('data-name');
+            const description = card.getAttribute('data-description');
+            const image = card.getAttribute('data-image');
+
+            // Update modal content
+            modalName.textContent = name;
+            modalImage.src = image;
+
+            // Set custom descriptions for specific trainers
+            if (name === "Katarzyna") {
+                modalDescription.innerHTML = `
+                    Cześć! Mam na imię Kasia.<br>
+                    Jestem fizjoterapeutką i trenerką personalną. Sport i ruch od zawsze były ważną częścią mojego życia – zawodowo trenowałam taniec towarzyski, co rozwinęło moją świadomość ciała i ułatwia mi pracę z pacjentami i podopiecznymi. Doświadczenie zdobywałam w prywatnych placówkach rehabilitacyjnych, a także na praktykach i wolontariatach.<br><br>
+                    📚 <strong>Wykształcenie i kursy</strong><br>
+                    Magister fizjoterapii, Warszawski Uniwersytet Medyczny;<br>
+                    Medyczny trening w trakcie ciąży i po porodzie;<br>
+                    Personal Trainer – Praktyczna Strona Treningu;<br>
+                    Nowoczesna Rehabilitacja Ortopedyczna: staw kolanowy;<br>
+                    Masaż Tkanek Głębokich.<br><br>
+                    ✨ <strong>Specjalizacje</strong><br>
+                    Terapia kobiet w ciąży i po porodzie, w tym zaburzenia uroginekologiczne;<br>
+                    Rehabilitacja ortopedyczna – pomoc po urazach i operacjach;<br>
+                    Praca z młodzieżą, sportowcami i tancerzami – profilaktyka urazów, rozwój świadomości ruchowej;<br>
+                    Wsparcie w odzyskiwaniu sprawności i komfortu na co dzień.<br><br>
+                    💙 <strong>Prywatnie</strong><br>
+                    Interesuję się tańcem, literaturą faktu i kuchnią wegetariańską. Najwięcej radości daje mi aktywny wypoczynek – szczególnie wycieczki górskie.
+                `;
+            } else if (name === "Aleksander") {
+                modalDescription.innerHTML = `
+                    Cześć! Nazywam się Aleksander.<br>
+                    Jestem certyfikowanym Trenerem Medycznym, a fundament swojej wiedzy zdobyłem na studiach fizjoterapeutycznych Warszawskiego Uniwersytetu Medycznego.<br><br>
+                    📚 Od ponad 10 lat trenuję sportowo i to właśnie praktyka połączona z wiedzą akademicką pozwala mi łączyć podejście fizjoterapeuty i trenera. Dzięki temu mogę dopasować poziom i formę treningu do absolutnie każdej osoby – niezależnie od wieku, doświadczenia czy ograniczeń zdrowotnych.<br><br>
+                    ✨ <strong>Specjalizuję się w:</strong><br>
+                    • powrocie do sprawności po urazach,<br>
+                    • treningu sportowym i siłowym,<br>
+                    • budowaniu kondycji i sylwetki,<br>
+                    • indywidualnym doborze obciążeń i metod treningowych.<br><br>
+                    💪 Oferuję pełne wsparcie i indywidualne podejście – od pierwszego treningu po długofalowy plan działania. Jeśli cenisz sobie rzetelność, ciężką pracę i chcesz zobaczyć imponujące efekty, zapraszam do współpracy!<br><br>
+                    💙 W wolnym czasie uwielbiam się uczyć, rozwijać swoje umiejętności i oczywiście trenować.
+                `;
+            } else if (name === "Anastasia") {
+                modalDescription.innerHTML = `
+                    Cześć! Mam na imię Nastia.<br>
+                    Sport towarzyszy mi od 5. roku życia i z pasji stał się moją profesją. Jestem trenerką zajęć grupowych. Doświadczenie zdobywałam w pracy, na kursach i szkoleniach, które pozwoliły mi poszerzyć wiedzę w zakresie treningu funkcjonalnego i rehabilitacji.<br><br>
+                    📚 <strong>Wykształcenie i kursy</strong><br>
+                    Specjalista ds. rehabilitacji fizycznej;<br>
+                    Procedos P9 Personal Trainer Education;<br>
+                    TRX (Original Course);<br>
+                    Trening funkcjonalny i z gumami oporowymi;<br>
+                    Trainer LVL 1.<br><br>
+                    ✨ <strong>Specjalizacje</strong><br>
+                    Trening funkcjonalny – rozwój siły, stabilizacji i mobilności w naturalnych wzorcach ruchowych;<br>
+                    Wsparcie procesów rehabilitacyjnych i prewencja urazów;<br>
+                    Poprawa postawy i sprawności w życiu codziennym.<br><br>
+                    💙 <strong>Prywatnie</strong><br>
+                    Uwielbiam grać w padel, rysować oraz spędzać długie spacery z moim psem.
+                `;
+            } else if (name === "Olga") {
+                modalDescription.innerHTML = `
+                    Cześć! Nazywam się Olga.<br>
+                    Jestem fizjoterapeutką i w swojej pracy łączę terapię manualną z ruchem. Wspieram osoby w walce z bólem, kontuzjami oraz w drodze do pełnej sprawności – tak, aby mogły cieszyć się życiem bez dyskomfortu w ciele.<br><br>
+                    📚 <strong>Ukończyłam studia magisterskie z fizjoterapii w Wyższej Szkole Rehabilitacji oraz liczne kursy, m.in.:</strong><br>
+                    • Trening medyczny<br>
+                    • Aktywność fizyczna kobiet w ciąży<br>
+                    • Fizjoterapia okołoporodowa<br>
+                    • Suche igłowanie<br>
+                    • Masaż tkanek głębokich<br><br>
+                    ✨ <strong>Specjalizuję się w:</strong><br>
+                    • fizjoterapii w stanach ostrych i przewlekłych dolegliwości kręgosłupa,<br>
+                    • fizjoterapii ortopedycznej – przed i pooperacyjnej,<br>
+                    • wsparciu kobiet w ciąży i po porodzie,<br>
+                    • treningu siłowym i trójboju.<br><br>
+                    💙 <strong>Poza pracą</strong><br>
+                    Uwielbiam podnosić ciężary, czytać książki i biegać z moim czworonogiem.
+                `;
+            } else if (name === "Daniella") {
+                modalDescription.innerHTML = `
+                    Cześć! Nazywam się Daniela.<br>
+                    Ze sportem jestem związana od 4. roku życia – zaczynałam od gimnastyki artystycznej i tańca. Od zawsze fascynowały mnie dyscypliny, w których spotykają się estetyka ruchu, świadomość ciała i emocje. To właśnie one ukształtowały moją drogę zawodową i sprawiły, że dziś mogę dzielić się tą pasją z innymi.<br><br>
+                    📚 <strong>Z wykształcenia jestem pedagogiem fizycznej kultury (AWF Warszawa). Ukończyłam kursy i szkolenia z zakresu:</strong><br>
+                    • gimnastyki korekcyjnej,<br>
+                    • anatomii i fizjologii w ujęciu praktycznym,<br>
+                    • instruktora stretchingu,<br>
+                    • instruktora sportowej akrobatyki.<br><br>
+                    ✨ <strong>Moja obecna specjalizacja to pilates</strong> – trening, który wzmacnia mięśnie głębokie, poprawia mobilność i stabilizację, uczy prawidłowej postawy i odciąża kręgosłup. Jest świetnym wsparciem w profilaktyce i rehabilitacji, a także narzędziem do budowania świadomości ciała.<br><br>
+                    💙 <strong>Na co dzień</strong> pracuję również z dziećmi jako trenerka gimnastyki artystycznej w warszawskim klubie sportowym. Uwielbiam tę pracę – chcę, aby sport od najmłodszych lat był nie tylko pasją, ale też drogą do zdrowego i świadomego rozwoju.
+                `;
+            } else if (name === "Filip") {
+                modalDescription.innerHTML = `
+                    Cześć! Nazywam się Filip.<br>
+                    Jestem magistrem fizjoterapii po Akademii Wychowania Fizycznego w Warszawie. Specjalizuję się w prowadzeniu zajęć jogi oraz treningów prozdrowotnych, które wspierają równowagę ciała i umysłu, poprawiają sprawność, postawę oraz ogólne samopoczucie.<br><br>
+                    💪 <strong>Na co dzień</strong> pracuję zarówno z dorosłymi, jak i dziećmi — prowadzę zajęcia z akrobatyki, dbając o ich prawidłowy rozwój ruchowy i bezpieczeństwo.<br><br>
+                    🤸‍♀️ <strong>Moje doświadczenie sportowe</strong> obejmuje również zapasy w stylu klasycznym, w których odnosiłam sukcesy na poziomie krajowym.<br><br>
+                    Łączę wiedzę fizjoterapeutyczną, sportową praktykę i pasję do ruchu, aby wspierać każdego w drodze do lepszej kondycji, zdrowia i harmonii.
+                `;
+            } else {
+                modalDescription.textContent = description; // Default description for other trainers
+            }
+
+            // Show the modal
+            trainerModal.style.display = 'flex';
+        });
+    });
+
+    const closeTrainerModal = () => {
+        trainerModal.style.display = 'none';
+    };
+
+    closeTrainerModalBtn.addEventListener('click', closeTrainerModal);
+    modalOverlay.addEventListener('click', closeTrainerModal);
 
     // FAQ accordion logic
     document.querySelectorAll('.faq-card').forEach(function(card) {

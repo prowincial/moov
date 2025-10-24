@@ -2450,6 +2450,8 @@ body > .desktop + script {
 
 .subscriptions-modal-close svg,
 
+
+
 .packages-modal-close svg {
     width: 16px;
     height: 16px;
@@ -2539,7 +2541,7 @@ body > .desktop + script {
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     line-height: 29.25px;
-    word-wrap: break-word;
+   
 }
 
 /* Packages Modal Header */
@@ -2791,7 +2793,6 @@ body > .desktop + script {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
 }
 
 .get-started-modal-content {
@@ -2913,4 +2914,95 @@ body > .desktop + script {
 .packages-modal-back-row button svg,
 .get-started-modal-back-row button svg {
     stroke: var(--color-white-solid, white); /* Ensure "<" icon is white */
+}
+
+.trainer-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none; /* Ensure it starts hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.trainer-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Increased opacity for a darker background */
+}
+
+.trainer-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trainer-modal-close svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--color-grey-dark);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.trainer-modal-content {
+    position: relative;
+    z-index: 2;
+    background: var(--color-white); /* Ensure the modal background is solid white */
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+.trainer-modal-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    padding: 24px;
+}
+
+.trainer-modal-image {
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.trainer-modal-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.trainer-modal-name {
+    font-size: 24px;
+    font-family: var(--font-bold);
+    color: var(--color-grey-dark);
+}
+
+.trainer-modal-description {
+    font-size: 16px;
+    font-family: var(--font-regular);
+    color: var(--color-grey);
 }
