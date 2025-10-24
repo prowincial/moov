@@ -1794,7 +1794,7 @@ body > .desktop + script {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 64px; 
     align-items: flex-start;
     justify-content: center; /* Центрируем грид */
 }
@@ -2445,12 +2445,10 @@ body > .desktop + script {
     justify-content: center;
     align-items: center;
     gap: 8px;
-    cursor: pointer;
+       cursor: pointer;
 }
 
 .subscriptions-modal-close svg,
-
-
 
 .packages-modal-close svg {
     width: 16px;
@@ -2981,10 +2979,12 @@ body > .desktop + script {
 }
 
 .trainer-modal-image {
-    width: 40%;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
+    width: 100%; /* Ensure it scales to the modal's width */
+    max-width: 400px; /* Set a reasonable max width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire image is visible */
+    image-rendering: auto; /* Ensure smooth rendering */
+    image-rendering: -webkit-optimize-contrast; /* For better rendering on WebKit browsers */
 }
 
 .trainer-modal-details {
@@ -3005,4 +3005,38 @@ body > .desktop + script {
     font-size: 16px;
     font-family: var(--font-regular);
     color: var(--color-grey);
+}
+
+.trainer-modal-nav {
+    position: fixed; /* Изменено на fixed для размещения за пределами модального окна */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: var(--color-white);
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10000; /* Увеличен z-index для отображения поверх всего */
+}
+
+.trainer-modal-prev {
+    left: 16px; /* Расположено слева за пределами модального окна */
+}
+
+.trainer-modal-next {
+    right: 16px; /* Расположено справа за пределами модального окна */
+}
+
+.trainer-modal-nav svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--color-grey-dark);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
