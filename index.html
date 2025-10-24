@@ -941,6 +941,11 @@
     <!-- Trainer Modal -->
     <div id="trainer-modal" class="trainer-modal" style="display: none;">
         <div class="trainer-modal-overlay"></div>
+        <button class="trainer-modal-nav trainer-modal-prev" id="trainer-modal-prev">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M10 4L6 8L10 12" stroke="currentColor" />
+            </svg>
+        </button>
         <div class="trainer-modal-content">
             <button class="trainer-modal-close" id="close-trainer-modal">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -955,6 +960,11 @@
                 </div>
             </div>
         </div>
+        <button class="trainer-modal-nav trainer-modal-next" id="trainer-modal-next">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 4L10 8L6 12" stroke="currentColor" />
+            </svg>
+        </button>
     </div>
 
     <script>
@@ -1031,119 +1041,153 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalDescription = document.getElementById('trainer-modal-description');
     const closeTrainerModalBtn = document.getElementById('close-trainer-modal');
     const modalOverlay = trainerModal.querySelector('.trainer-modal-overlay');
+    const prevButton = document.getElementById('trainer-modal-prev');
+    const nextButton = document.getElementById('trainer-modal-next');
 
-    coachCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const name = card.getAttribute('data-name');
-            const description = card.getAttribute('data-description');
-            const image = card.getAttribute('data-image');
+    let currentTrainerIndex = 0;
 
-            // Update modal content
-            modalName.textContent = name;
-            modalImage.src = image;
+    const trainers = [
+        {
+            name: "Katarzyna",
+            description: `
+                Cześć! Mam na imię Kasia.<br>
+                Jestem fizjoterapeutką i trenerką personalną. Sport i ruch od zawsze były ważną częścią mojego życia – zawodowo trenowałam taniec towarzyski, co rozwinęło moją świadomość ciała i ułatwia mi pracę z pacjentami i podopiecznymi. Doświadczenie zdobywałam w prywatnych placówkach rehabilitacyjnych, a także na praktykach i wolontariatach.<br><br>
+                📚 <strong>Wykształcenie i kursy</strong><br>
+                Magister fizjoterapii, Warszawski Uniwersytet Medyczny;<br>
+                Medyczny trening w trakcie ciąży i po porodzie;<br>
+                Personal Trainer – Praktyczna Strona Treningu;<br>
+                Nowoczesna Rehabilitacja Ortopedyczna: staw kolanowy;<br>
+                Masaż Tkanek Głębokich.<br><br>
+                ✨ <strong>Specjalizacje</strong><br>
+                Terapia kobiet w ciąży i po porodzie, w tym zaburzenia uroginekologiczne;<br>
+                Rehabilitacja ortopedyczna – pomoc po urazach i operacjach;<br>
+                Praca z młodzieżą, sportowcami i tancerzami – profilaktyka urazów, rozwój świadomości ruchowej;<br>
+                Wsparcie w odzyskiwaniu sprawności i komfortu na co dzień.<br><br>
+                💙 <strong>Prywatnie</strong><br>
+                Interesuję się tańcem, literaturą faktu i kuchnią wegetariańską. Najwięcej radości daje mi aktywny wypoczynek – szczególnie wycieczki górskie.
+            `,
+            image: "./img/kasia_trener.webp"
+        },
+        {
+            name: "Olga",
+            description: `
+                Cześć! Nazywam się Olga.<br>
+                Jestem fizjoterapeutką i w swojej pracy łączę terapię manualną z ruchem. Wspieram osoby w walce z bólem, kontuzjami oraz w drodze do pełnej sprawności – tak, aby mogły cieszyć się życiem bez dyskomfortu w ciele.<br><br>
+                📚 <strong>Ukończyłam studia magisterskie z fizjoterapii w Wyższej Szkole Rehabilitacji oraz liczne kursy, m.in.:</strong><br>
+                • Trening medyczny<br>
+                • Aktywność fizyczna kobiet w ciąży<br>
+                • Fizjoterapia okołoporodowa<br>
+                • Suche igłowanie<br>
+                • Masaż tkanek głębokich<br><br>
+                ✨ <strong>Specjalizuję się w:</strong><br>
+                • fizjoterapii w stanach ostrych i przewlekłych dolegliwości kręgosłupa,<br>
+                • fizjoterapii ortopedycznej – przed i pooperacyjnej,<br>
+                • wsparciu kobiet w ciąży i po porodzie,<br>
+                • treningu siłowym i trójboju.<br><br>
+                💙 <strong>Poza pracą</strong><br>
+                Uwielbiam podnosić ciężary, czytać książki i biegać z moim czworonogiem.
+            `,
+            image: "./img/olga_trener.webp"
+        },
+        {
+            name: "Filip",
+            description: `
+                Cześć! Nazywam się Filip.<br>
+                Jestem magistrem fizjoterapii po Akademii Wychowania Fizycznego w Warszawie. Specjalizuję się w prowadzeniu zajęć jogi oraz treningów prozdrowotnych, które wspierają równowagę ciała i umysłu, poprawiają sprawność, postawę oraz ogólne samopoczucie.<br><br>
+                💪 <strong>Na co dzień</strong> pracuję zarówno z dorosłymi, jak i dziećmi — prowadzę zajęcia z akrobatyki, dbając o ich prawidłowy rozwój ruchowy i bezpieczeństwo.<br><br>
+                🤸‍♀️ <strong>Moje doświadczenie sportowe</strong> obejmuje również zapasy w stylu klasycznym, w których odnosiłam sukcesy na poziomie krajowym.<br><br>
+                Łączę wiedzę fizjoterapeutyczną, sportową praktykę i pasję do ruchu, aby wspierać każdego w drodze do lepszej kondycji, zdrowia i harmonii.
+            `,
+            image: "./img/filip_trener.webp"
+        },
+        {
+            name: "Aleksander",
+            description: `
+                Cześć! Nazywam się Aleksander.<br>
+                Jestem certyfikowanym Trenerem Medycznym, a fundament swojej wiedzy zdobyłem na studiach fizjoterapeutycznych Warszawskiego Uniwersytetu Medycznego.<br><br>
+                📚 Od ponad 10 lat trenuję sportowo i to właśnie praktyka połączona z wiedzą akademicką pozwala mi łączyć podejście fizjoterapeuty i trenera. Dzięki temu mogę dopasować poziom i formę treningu do absolutnie każdej osoby – niezależnie od wieku, doświadczenia czy ograniczeń zdrowotnych.<br><br>
+                ✨ <strong>Specjalizuję się w:</strong><br>
+                • powrocie do sprawności po urazach,<br>
+                • treningu sportowym i siłowym,<br>
+                • budowaniu kondycji i sylwetki,<br>
+                • indywidualnym doborze obciążeń i metod treningowych.<br><br>
+                💪 Oferuję pełne wsparcie i indywidualne podejście – od pierwszego treningu po długofalowy plan działania. Jeśli cenisz sobie rzetelność, ciężką pracę i chcesz zobaczyć imponujące efekty, zapraszam do współpracy!<br><br>
+                💙 W wolnym czasie uwielbiam się uczyć, rozwijać swoje umiejętności i oczywiście trenować.
+            `,
+            image: "./img/alek_trener.webp"
+        },
+        {
+            name: "Daniella",
+            description: `
+                Cześć! Nazywam się Daniela.<br>
+                Ze sportem jestem związana od 4. roku życia – zaczynałam od gimnastyki artystycznej i tańca. Od zawsze fascynowały mnie dyscypliny, w których spotykają się estetyka ruchu, świadomość ciała i emocje. To właśnie one ukształtowały moją drogę zawodową i sprawiły, że dziś mogę dzielić się tą pasją z innymi.<br><br>
+                📚 <strong>Z wykształcenia jestem pedagogiem fizycznej kultury (AWF Warszawa). Ukończyłam kursy i szkolenia z zakresu:</strong><br>
+                • gimnastyki korekcyjnej,<br>
+                • anatomii i fizjologii w ujęciu praktycznym,<br>
+                • instruktora stretchingu,<br>
+                • instruktora sportowej akrobatyki.<br><br>
+                ✨ <strong>Moja obecna specjalizacja to pilates</strong> – trening, który wzmacnia mięśnie głębokie, poprawia mobilność i stabilizację, uczy prawidłowej postawy i odciąża kręgosłup. Jest świetnym wsparciem w profilaktyce i rehabilitacji, a także narzędziem do budowania świadomości ciała.<br><br>
+                💙 <strong>Na co dzień</strong> pracuję również z dziećmi jako trenerka gimnastyki artystycznej w warszawskim klubie sportowym. Uwielbiam tę pracę – chcę, aby sport od najmłodszych lat był nie tylko pasją, ale też drogą do zdrowego i świadomego rozwoju.
+            `,
+            image: "./img/dani_trener.webp"
+        },
+        {
+            name: "Anastasia",
+            description: `
+                Cześć! Mam na imię Nastia.<br>
+                Sport towarzyszy mi od 5. roku życia i z pasji stał się moją profesją. Jestem trenerką zajęć grupowych. Doświadczenie zdobywałam w pracy, na kursach i szkoleniach, które pozwoliły mi poszerzyć wiedzę w zakresie treningu funkcjonalnego i rehabilitacji.<br><br>
+                📚 <strong>Wykształcenie i kursy</strong><br>
+                Specjalista ds. rehabilitacji fizycznej;<br>
+                Procedos P9 Personal Trainer Education;<br>
+                TRX (Original Course);<br>
+                Trening funkcjonalny i z gumami oporowymi;<br>
+                Trainer LVL 1.<br><br>
+                ✨ <strong>Specjalizacje</strong><br>
+                Trening funkcjonalny – rozwój siły, stabilizacji i mobilności w naturalnych wzorcach ruchowych;<br>
+                Wsparcie procesów rehabilitacyjnych i prewencja urazów;<br>
+                Poprawa postawy i sprawności w życiu codziennym.<br><br>
+                💙 <strong>Prywatnie</strong><br>
+                Uwielbiam grać w padel, rysować oraz spędzać długie spacery z moim psem.
+            `,
+            image: "./img/nastia_trener.webp"
+        }
+    ];
 
-            // Set custom descriptions for specific trainers
-            if (name === "Katarzyna") {
-                modalDescription.innerHTML = `
-                    Cześć! Mam na imię Kasia.<br>
-                    Jestem fizjoterapeutką i trenerką personalną. Sport i ruch od zawsze były ważną częścią mojego życia – zawodowo trenowałam taniec towarzyski, co rozwinęło moją świadomość ciała i ułatwia mi pracę z pacjentami i podopiecznymi. Doświadczenie zdobywałam w prywatnych placówkach rehabilitacyjnych, a także na praktykach i wolontariatach.<br><br>
-                    📚 <strong>Wykształcenie i kursy</strong><br>
-                    Magister fizjoterapii, Warszawski Uniwersytet Medyczny;<br>
-                    Medyczny trening w trakcie ciąży i po porodzie;<br>
-                    Personal Trainer – Praktyczna Strona Treningu;<br>
-                    Nowoczesna Rehabilitacja Ortopedyczna: staw kolanowy;<br>
-                    Masaż Tkanek Głębokich.<br><br>
-                    ✨ <strong>Specjalizacje</strong><br>
-                    Terapia kobiet w ciąży i po porodzie, w tym zaburzenia uroginekologiczne;<br>
-                    Rehabilitacja ortopedyczna – pomoc po urazach i operacjach;<br>
-                    Praca z młodzieżą, sportowcami i tancerzami – profilaktyka urazów, rozwój świadomości ruchowej;<br>
-                    Wsparcie w odzyskiwaniu sprawności i komfortu na co dzień.<br><br>
-                    💙 <strong>Prywatnie</strong><br>
-                    Interesuję się tańcem, literaturą faktu i kuchnią wegetariańską. Najwięcej radości daje mi aktywny wypoczynek – szczególnie wycieczki górskie.
-                `;
-            } else if (name === "Aleksander") {
-                modalDescription.innerHTML = `
-                    Cześć! Nazywam się Aleksander.<br>
-                    Jestem certyfikowanym Trenerem Medycznym, a fundament swojej wiedzy zdobyłem na studiach fizjoterapeutycznych Warszawskiego Uniwersytetu Medycznego.<br><br>
-                    📚 Od ponad 10 lat trenuję sportowo i to właśnie praktyka połączona z wiedzą akademicką pozwala mi łączyć podejście fizjoterapeuty i trenera. Dzięki temu mogę dopasować poziom i formę treningu do absolutnie każdej osoby – niezależnie od wieku, doświadczenia czy ograniczeń zdrowotnych.<br><br>
-                    ✨ <strong>Specjalizuję się w:</strong><br>
-                    • powrocie do sprawności po urazach,<br>
-                    • treningu sportowym i siłowym,<br>
-                    • budowaniu kondycji i sylwetki,<br>
-                    • indywidualnym doborze obciążeń i metod treningowych.<br><br>
-                    💪 Oferuję pełne wsparcie i indywidualne podejście – od pierwszego treningu po długofalowy plan działania. Jeśli cenisz sobie rzetelność, ciężką pracę i chcesz zobaczyć imponujące efekty, zapraszam do współpracy!<br><br>
-                    💙 W wolnym czasie uwielbiam się uczyć, rozwijać swoje umiejętności i oczywiście trenować.
-                `;
-            } else if (name === "Anastasia") {
-                modalDescription.innerHTML = `
-                    Cześć! Mam na imię Nastia.<br>
-                    Sport towarzyszy mi od 5. roku życia i z pasji stał się moją profesją. Jestem trenerką zajęć grupowych. Doświadczenie zdobywałam w pracy, na kursach i szkoleniach, które pozwoliły mi poszerzyć wiedzę w zakresie treningu funkcjonalnego i rehabilitacji.<br><br>
-                    📚 <strong>Wykształcenie i kursy</strong><br>
-                    Specjalista ds. rehabilitacji fizycznej;<br>
-                    Procedos P9 Personal Trainer Education;<br>
-                    TRX (Original Course);<br>
-                    Trening funkcjonalny i z gumami oporowymi;<br>
-                    Trainer LVL 1.<br><br>
-                    ✨ <strong>Specjalizacje</strong><br>
-                    Trening funkcjonalny – rozwój siły, stabilizacji i mobilności w naturalnych wzorcach ruchowych;<br>
-                    Wsparcie procesów rehabilitacyjnych i prewencja urazów;<br>
-                    Poprawa postawy i sprawności w życiu codziennym.<br><br>
-                    💙 <strong>Prywatnie</strong><br>
-                    Uwielbiam grać w padel, rysować oraz spędzać długie spacery z moim psem.
-                `;
-            } else if (name === "Olga") {
-                modalDescription.innerHTML = `
-                    Cześć! Nazywam się Olga.<br>
-                    Jestem fizjoterapeutką i w swojej pracy łączę terapię manualną z ruchem. Wspieram osoby w walce z bólem, kontuzjami oraz w drodze do pełnej sprawności – tak, aby mogły cieszyć się życiem bez dyskomfortu w ciele.<br><br>
-                    📚 <strong>Ukończyłam studia magisterskie z fizjoterapii w Wyższej Szkole Rehabilitacji oraz liczne kursy, m.in.:</strong><br>
-                    • Trening medyczny<br>
-                    • Aktywność fizyczna kobiet w ciąży<br>
-                    • Fizjoterapia okołoporodowa<br>
-                    • Suche igłowanie<br>
-                    • Masaż tkanek głębokich<br><br>
-                    ✨ <strong>Specjalizuję się w:</strong><br>
-                    • fizjoterapii w stanach ostrych i przewlekłych dolegliwości kręgosłupa,<br>
-                    • fizjoterapii ortopedycznej – przed i pooperacyjnej,<br>
-                    • wsparciu kobiet w ciąży i po porodzie,<br>
-                    • treningu siłowym i trójboju.<br><br>
-                    💙 <strong>Poza pracą</strong><br>
-                    Uwielbiam podnosić ciężary, czytać książki i biegać z moim czworonogiem.
-                `;
-            } else if (name === "Daniella") {
-                modalDescription.innerHTML = `
-                    Cześć! Nazywam się Daniela.<br>
-                    Ze sportem jestem związana od 4. roku życia – zaczynałam od gimnastyki artystycznej i tańca. Od zawsze fascynowały mnie dyscypliny, w których spotykają się estetyka ruchu, świadomość ciała i emocje. To właśnie one ukształtowały moją drogę zawodową i sprawiły, że dziś mogę dzielić się tą pasją z innymi.<br><br>
-                    📚 <strong>Z wykształcenia jestem pedagogiem fizycznej kultury (AWF Warszawa). Ukończyłam kursy i szkolenia z zakresu:</strong><br>
-                    • gimnastyki korekcyjnej,<br>
-                    • anatomii i fizjologii w ujęciu praktycznym,<br>
-                    • instruktora stretchingu,<br>
-                    • instruktora sportowej akrobatyki.<br><br>
-                    ✨ <strong>Moja obecna specjalizacja to pilates</strong> – trening, który wzmacnia mięśnie głębokie, poprawia mobilność i stabilizację, uczy prawidłowej postawy i odciąża kręgosłup. Jest świetnym wsparciem w profilaktyce i rehabilitacji, a także narzędziem do budowania świadomości ciała.<br><br>
-                    💙 <strong>Na co dzień</strong> pracuję również z dziećmi jako trenerka gimnastyki artystycznej w warszawskim klubie sportowym. Uwielbiam tę pracę – chcę, aby sport od najmłodszych lat był nie tylko pasją, ale też drogą do zdrowego i świadomego rozwoju.
-                `;
-            } else if (name === "Filip") {
-                modalDescription.innerHTML = `
-                    Cześć! Nazywam się Filip.<br>
-                    Jestem magistrem fizjoterapii po Akademii Wychowania Fizycznego w Warszawie. Specjalizuję się w prowadzeniu zajęć jogi oraz treningów prozdrowotnych, które wspierają równowagę ciała i umysłu, poprawiają sprawność, postawę oraz ogólne samopoczucie.<br><br>
-                    💪 <strong>Na co dzień</strong> pracuję zarówno z dorosłymi, jak i dziećmi — prowadzę zajęcia z akrobatyki, dbając o ich prawidłowy rozwój ruchowy i bezpieczeństwo.<br><br>
-                    🤸‍♀️ <strong>Moje doświadczenie sportowe</strong> obejmuje również zapasy w stylu klasycznym, w których odnosiłam sukcesy na poziomie krajowym.<br><br>
-                    Łączę wiedzę fizjoterapeutyczną, sportową praktykę i pasję do ruchu, aby wspierać każdego w drodze do lepszej kondycji, zdrowia i harmonii.
-                `;
-            } else {
-                modalDescription.textContent = description; // Default description for other trainers
-            }
+    const updateTrainerModal = (index) => {
+        const trainer = trainers[index];
+        modalName.textContent = trainer.name;
+        modalImage.src = trainer.image;
+        modalDescription.innerHTML = trainer.description;
+    };
 
-            // Show the modal
-            trainerModal.style.display = 'flex';
-        });
-    });
+    const showTrainerModal = (index) => {
+        currentTrainerIndex = index;
+        updateTrainerModal(currentTrainerIndex);
+        trainerModal.style.display = 'flex';
+    };
 
     const closeTrainerModal = () => {
         trainerModal.style.display = 'none';
     };
 
+    const showNextTrainer = () => {
+        currentTrainerIndex = (currentTrainerIndex + 1) % trainers.length;
+        updateTrainerModal(currentTrainerIndex);
+    };
+
+    const showPrevTrainer = () => {
+        currentTrainerIndex = (currentTrainerIndex - 1 + trainers.length) % trainers.length;
+        updateTrainerModal(currentTrainerIndex);
+    };
+
+    coachCards.forEach((card, index) => {
+        card.addEventListener('click', () => showTrainerModal(index));
+    });
+
     closeTrainerModalBtn.addEventListener('click', closeTrainerModal);
     modalOverlay.addEventListener('click', closeTrainerModal);
+    nextButton.addEventListener('click', showNextTrainer);
+    prevButton.addEventListener('click', showPrevTrainer);
 
     // FAQ accordion logic
     document.querySelectorAll('.faq-card').forEach(function(card) {
