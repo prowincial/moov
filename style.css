@@ -848,8 +848,8 @@ section:not(.header):not(.footer) {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); /* Центрируем окно */
-    width: 90vw; /* Уменьшаем ширину */
-    max-width: 800px; /* Ограничиваем максимальную ширину */
+    width: 95vw; /* Increased width for a wider modal */
+    max-width: 1200px; /* Increased max-width */
     height: auto; /* Высота подстраивается под контент */
     max-height: 90vh; /* Ограничиваем максимальную высоту */
     background: var(--color-grey-98, #FAFAF9);
@@ -857,7 +857,7 @@ section:not(.header):not(.footer) {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Контент выравнивается сверху */
-    padding: 48px 32px;
+    padding: 64px 48px; /* Adjusted padding for better spacing */
     overflow-y: auto; /* Добавляем прокрутку для длинного контента */
     z-index: 9999;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18); /* Добавляем тень */
@@ -910,8 +910,9 @@ section:not(.header):not(.footer) {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); /* Центрируем окно */
-    width: 100vw;
-    height: 100vh;
+    width: 95vw; /* Increased width for a wider modal */
+    max-width: 1200px; /* Increased max-width */
+    height: auto; /* Adjust height to fit content */
     background: var(--color-grey-98, #FAFAF9);
     display: flex;
     flex-direction: column;
@@ -955,18 +956,18 @@ section:not(.header):not(.footer) {
 
 .packages-modal-cards-row {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 32px;
-    flex-wrap: wrap;
+    display: flex; /* Use flex for horizontal layout */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: space-between; /* Add spacing between boxes */
+    align-items: stretch; /* Align items to stretch vertically */
+    gap: 32px; /* Increased gap for better spacing between boxes */
     margin: 0 auto;
 }
 
 .packages-modal-card {
-    width: 362px;
-    height: 470px;
-    padding: 24px;
+    width: calc((100% - 64px) / 3); /* Adjust width to fit 3 cards with new gap */
+    height: 520px; /* Increased height for more content */
+    padding: 32px; /* Increased padding for better content spacing */
     background: rgba(255,255,255,0.90);
     box-shadow: 0px 1px 0px 1px rgba(255,255,255,0.60) inset;
     overflow: hidden;
@@ -978,7 +979,12 @@ section:not(.header):not(.footer) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 24px; /* Ensure consistent spacing */
+    gap: 32px; /* Adjusted gap for consistent spacing inside the box */
+}
+
+/* Hide the fourth card */
+.subscriptions-modal-card:nth-child(4) {
+    display: none;
 }
 
 .packages-modal-card-image-wrapper {
@@ -1030,7 +1036,7 @@ section:not(.header):not(.footer) {
     padding: 24px 24px 16px 24px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 12px; /* Increased gap for better spacing between content elements */
 }
 
 .packages-modal-card-title,
@@ -1050,8 +1056,8 @@ section:not(.header):not(.footer) {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); /* Центрируем окно */
-    width: 90vw; /* Уменьшаем ширину */
-    max-width: 800px; /* Ограничиваем максимальную ширину */
+    width: 95vw; /* Уменьшаем ширину */
+    max-width: 1200px; /* Ограничиваем максимальную ширину */
     height: auto; /* Высота подстраивается под контент */
     max-height: 90vh; /* Ограничиваем максимальную высоту */
     background: var(--color-grey-98, #FAFAF9);
@@ -1059,7 +1065,7 @@ section:not(.header):not(.footer) {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Контент выравнивается сверху */
-    padding: 48px 32px;
+    padding: 64px 48px; /* Adjusted padding for better spacing */
     overflow-y: auto; /* Добавляем прокрутку для длинного контента */
     z-index: 9999;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18); /* Добавляем тень */
@@ -1082,19 +1088,18 @@ section:not(.header):not(.footer) {
 /* Cards grid for subscriptions modal (2x2) */
 .subscriptions-modal-cards-row {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    grid-template-rows: repeat(2, auto);
-    gap: 32px;
+    display: flex; /* Use flex for horizontal layout */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: space-between; /* Add spacing between boxes */
+    align-items: stretch; /* Align items to stretch vertically */
+    gap: 32px; /* Increased gap for better spacing between boxes */
     margin: 0 auto;
-    justify-items: center;
-    align-items: stretch;
 }
 
 .subscriptions-modal-card {
-    width: 362px;
-    height: 470px;
-    padding: 24px;
+    width: calc((100% - 64px) / 3); /* Adjust width to fit 3 cards with new gap */
+    height: 520px; /* Increased height for more content */
+    padding: 32px; /* Increased padding for better content spacing */
     background: rgba(255,255,255,0.90);
     box-shadow: 0px 1px 0px 1px rgba(255,255,255,0.60) inset;
     overflow: hidden;
@@ -1106,7 +1111,12 @@ section:not(.header):not(.footer) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 24px; /* Ensure consistent spacing */
+    gap: 32px; /* Adjusted gap for consistent spacing inside the box */
+}
+
+/* Hide the fourth card */
+.subscriptions-modal-card:nth-child(4) {
+    display: none;
 }
 
 .subscriptions-modal-card-image-wrapper {
@@ -1692,6 +1702,12 @@ body > .desktop + script {
     border: 2px solid var(--color-grey-75-30); /* Одинаковая толщина рамки */
     border-radius: 12px; /* Одинаковое скругление углов */
     padding: 16px; /* Одинаковые внутренние отступы */
+}
+
+.subscriptions-modal-cta-block {
+    width: 100%; /* Expand the block to full width */
+    max-width: none; /* Remove max-width restriction */
+    padding: 32px; /* Adjust padding for better spacing */
 }
 
 /* Senseys (Our Team) Section */
@@ -2443,7 +2459,7 @@ body > .desktop + script {
 
 .subscriptions-modal-back-text,
 .packages-modal-back-text {
-    color: var(--color-orange-4, #0C0A09);
+    color: var(--color-orange-4, #ffffff);
     font-size: 14px;
     font-family: Montserrat, sans-serif;
     font-weight: 500;
@@ -2862,39 +2878,39 @@ body > .desktop + script {
 
 .get-started-modal-submit {
     padding: 12px 24px;
-    background: var(--color-primary-light); /* Initially blue */
-    color: var(--color-white-solid);
+    background: var(--color-primary); /* Initially blue */
+    color: var(--color-white);
     border: none;
     border-radius: 8px;
     font-size: 16px;
     font-family: var(--font-semibold);
     cursor: pointer;
     text-align: center;
-    transition: background 0.3s ease;
-}
-
-.get-started-modal-submit:hover {
-    background: var(--color-primary); /* Darker blue on hover */
+    transition: none;
 }
 
 .get-started-modal-back-row button,
 .subscriptions-modal-back-row button,
 .packages-modal-back-row button {
+    width: auto;
+    height: auto;
     padding: 9.33px 13.33px;
-    background: var(--color-primary-light); /* Blue background */
-    color: var(--color-white-solid);
-    border-radius: 10px;
-    outline: 1px solid var(--color-grey-83);
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+    background: var(--color-blue-38, #1001C0); /* Match "Get Started" button background */
+    color: var(--color-white-solid, white); /* White text color */
+    font-family: var(--font-family-semibold); /* Match "Get Started" font */
+    font-size: var(--font-size-14); /* Match "Get Started" font size */
+    font-weight: var(--font-weight-600); /* Match "Get Started" font weight */
+    line-height: 20px; /* Match "Get Started" line height */
+    text-align: center;
+    text-decoration: none;
+    border: none;
     cursor: pointer;
-    transition: background 0.3s ease;
+    border-radius: 12px; /* Rounded corners */
+    transition: none; /* Disable hover effect */
 }
 
-.get-started-modal-back-row button:hover,
-.subscriptions-modal-back-row button:hover,
-.packages-modal-back-row button:hover {
-    background: var(--color-primary); /* Darker blue on hover */
+.subscriptions-modal-back-row button svg,
+.packages-modal-back-row button svg,
+.get-started-modal-back-row button svg {
+    stroke: var(--color-white-solid, white); /* Ensure "<" icon is white */
 }
