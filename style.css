@@ -76,6 +76,12 @@ section:not(.header):not(.footer) {
     gap: 8px;
 }
 
+.logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
 .moov-symbol {
     width: 40px;
     height: 40px;
